@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lindsaytedds.ca/sitemap.xml
