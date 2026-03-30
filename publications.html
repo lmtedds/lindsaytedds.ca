@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Publications | Lindsay M. Tedds</title>
+  <meta name="description" content="Publications by Lindsay M. Tedds — peer-reviewed journal articles, books, book chapters, and policy papers spanning public finance, tax policy, social policy, and equity in Canada.">
+  <meta name="keywords" content="Lindsay Tedds publications, public finance, tax policy, basic income, property tax, GBA+, microsimulation, Canadian economics">
+  <link rel="canonical" href="https://lindsaytedds.ca/publications">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Publications | Lindsay M. Tedds">
+  <meta property="og:url" content="https://lindsaytedds.ca/publications">
+  <meta property="og:site_name" content="Lindsay M. Tedds">
+  <meta name="robots" content="index, follow">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink:        #1c2b3a;
+      --ink-mid:    #2d4060;
+      --green:      #3d6b5e;
+      --green-light:#6a9e8f;
+      --green-pale: #e8f3f0;
+      --steel:      #4a6080;
+      --steel-light:#a8b8c8;
+      --cream:      #f5f3ee;
+      --border:     #dcd7cc;
+      --white:      #ffffff;
+      --text:       #1c2b3a;
+      --text-mid:   #2a3a4a;
+      --text-muted: #6a7a8a;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans:  'DM Sans', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); background: var(--cream); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+
+    /* Nav */
+    .site-nav { position: sticky; top: 0; z-index: 100; background: var(--cream); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 60px; }
+    .nav-name { font-family: var(--serif); font-size: 18px; font-weight: 500; color: var(--ink); }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--steel); transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--green); }
+
+    /* Page header */
+    .page-header { background: var(--ink); padding: 56px 48px 52px; }
+    .page-header-eyebrow { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green-light); margin-bottom: 16px; }
+    .page-header h1 { font-family: var(--serif); font-size: 48px; font-weight: 300; color: #f0ece4; line-height: 1.1; margin-bottom: 20px; }
+    .page-header-rule { width: 44px; height: 2px; background: var(--green); margin-bottom: 20px; }
+    .page-header-desc { font-family: var(--serif); font-size: 17px; font-weight: 300; font-style: italic; color: var(--steel-light); max-width: 560px; line-height: 1.7; }
+
+    /* Filter bar */
+    .filter-bar { background: var(--white); border-bottom: 1px solid var(--border); padding: 20px 48px; position: sticky; top: 60px; z-index: 90; }
+    .filter-row { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
+    .filter-group { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .filter-label { font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-right: 4px; white-space: nowrap; }
+    .filter-btn { font-family: var(--sans); font-size: 12px; font-weight: 400; color: var(--steel); background: transparent; border: 1px solid var(--border); padding: 5px 13px; border-radius: 2px; cursor: pointer; transition: all 0.15s; white-space: nowrap; }
+    .filter-btn:hover { border-color: var(--steel); color: var(--ink); }
+    .filter-btn.active { background: var(--ink); color: var(--white); border-color: var(--ink); }
+    .filter-divider { width: 1px; height: 24px; background: var(--border); }
+    .filter-count { font-size: 11px; color: var(--text-muted); margin-left: auto; white-space: nowrap; }
+
+    /* Main */
+    .site-main { padding: 48px 48px 80px; }
+
+    /* Section group */
+    .pub-section { margin-bottom: 52px; }
+    .pub-section-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid var(--green); }
+    .pub-section-title { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--ink); }
+    .pub-section-count { font-size: 12px; color: var(--text-muted); }
+    .pub-section[data-empty="true"] { display: none; }
+
+    /* Publication row */
+    .pub-row { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: start; padding: 16px 0; border-bottom: 1px solid var(--border); transition: background 0.1s; }
+    .pub-row:last-child { border-bottom: none; }
+    .pub-row[data-hidden="true"] { display: none; }
+    .pub-main {}
+    .pub-title { font-family: var(--serif); font-size: 16px; font-weight: 400; color: var(--ink); line-height: 1.5; margin-bottom: 5px; }
+    .pub-title a { border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+    .pub-title a:hover { border-color: var(--green); color: var(--green); }
+    .pub-authors { font-size: 12px; color: var(--text-muted); margin-bottom: 4px; line-height: 1.5; }
+    .pub-venue { font-size: 12px; color: var(--steel); }
+    .pub-right { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; padding-top: 2px; }
+    .pub-badge { font-size: 10px; padding: 2px 8px; border-radius: 2px; white-space: nowrap; }
+    .badge-forthcoming { background: var(--green-pale); color: var(--green); }
+    .badge-available { background: #e6eff8; color: #2a5080; }
+    .badge-inprogress { background: #f5f0e8; color: #8a6020; }
+    .pub-link { font-size: 11px; color: var(--steel); border-bottom: 1px solid var(--border); padding-bottom: 1px; transition: color 0.2s, border-color 0.2s; white-space: nowrap; }
+    .pub-link:hover { color: var(--green); border-color: var(--green-light); }
+
+    /* No results */
+    .no-results { padding: 48px 0; text-align: center; display: none; }
+    .no-results.visible { display: block; }
+    .no-results p { font-family: var(--serif); font-size: 18px; color: var(--text-muted); }
+
+    /* Footer */
+    .site-footer { background: var(--ink); padding: 40px 48px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .footer-name { font-family: var(--serif); font-size: 16px; color: #c8d4de; }
+    .footer-links { display: flex; gap: 28px; list-style: none; }
+    .footer-links a { font-size: 11px; letter-spacing: 0.07em; text-transform: uppercase; color: #6a8090; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--green-light); }
+    .footer-copy { font-size: 11px; color: #4a6070; }
+    .palette-strip { height: 3px; display: flex; }
+    .ps1 { flex: 4; background: var(--ink); } .ps2 { flex: 2; background: var(--green); } .ps3 { flex: 2; background: var(--steel); } .ps4 { flex: 1; background: var(--green-light); }
+
+    /* Responsive */
+    @media (max-width: 860px) {
+      .site-nav, .filter-bar, .page-header, .site-main, .site-footer { padding-left: 24px; padding-right: 24px; }
+      .nav-links { display: none; }
+      .page-header h1 { font-size: 36px; }
+      .pub-row { grid-template-columns: 1fr; }
+      .pub-right { flex-direction: row; align-items: center; }
+      .filter-row { gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <a href="/" class="nav-name">Lindsay M. Tedds</a>
+    <ul class="nav-links">
+      <li><a href="/research">Research</a></li>
+      <li><a href="/publications" class="active">Publications</a></li>
+      <li><a href="/media">Media</a></li>
+      <li><a href="/teaching">Teaching</a></li>
+      <li><a href="/cv">CV</a></li>
+      <li><a href="/disclosure">Disclosure</a></li>
+    </ul>
+  </nav>
+
+  <header class="page-header">
+    <p class="page-header-eyebrow">Lindsay M. Tedds</p>
+    <h1>Publications</h1>
+    <div class="page-header-rule"></div>
+    <p class="page-header-desc">Peer-reviewed journals, books, book chapters, and policy papers. Student collaborator names are in italics. Technical reports and general interest pieces are listed in the full CV.</p>
+  </header>
+
+  <div class="filter-bar">
+    <div class="filter-row">
+      <div class="filter-group">
+        <span class="filter-label">Type</span>
+        <button class="filter-btn active" data-filter-type="all">All</button>
+        <button class="filter-btn" data-filter-type="journal">Journal Articles</button>
+        <button class="filter-btn" data-filter-type="book">Books</button>
+        <button class="filter-btn" data-filter-type="chapter">Book Chapters</button>
+        <button class="filter-btn" data-filter-type="policy">Peer-Reviewed Policy Papers</button>
+        <button class="filter-btn" data-filter-type="policy-internal">Internally Reviewed Policy Papers</button>
+        <button class="filter-btn" data-filter-type="policy-nonpr">Policy Papers</button>
+      </div>
+      <div class="filter-divider"></div>
+      <div class="filter-group">
+        <span class="filter-label">Topic</span>
+        <button class="filter-btn active" data-filter-topic="all">All</button>
+        <button class="filter-btn" data-filter-topic="basic-income">Basic Income</button>
+        <button class="filter-btn" data-filter-topic="property-tax">Property Tax</button>
+        <button class="filter-btn" data-filter-topic="mvpf">MVPF</button>
+        <button class="filter-btn" data-filter-topic="gba">GBA+ &amp; Intersectionality</button>
+        <button class="filter-btn" data-filter-topic="tax-admin">Tax Administration</button>
+        <button class="filter-btn" data-filter-topic="str">Short-term Rentals</button>
+        <button class="filter-btn" data-filter-topic="microsimulation">Microsimulation</button>
+      </div>
+      <span class="filter-count" id="filter-count"></span>
+    </div>
+  </div>
+
+  <main class="site-main">
+
+    <div class="no-results" id="no-results"><p>No publications match the selected filters.</p></div>
+
+    <!-- ── Journal Articles ──────────────────────────────── -->
+    <section class="pub-section" data-section="journal">
+      <div class="pub-section-header">
+        <h2 class="pub-section-title">Journal Articles</h2>
+        <span class="pub-section-count" id="count-journal"></span>
+      </div>
+
+      <div class="pub-row" data-type="journal" data-topics="tax-admin basic-income">
+        <div class="pub-main">
+          <p class="pub-title">Tax Filing as State Administrative Infrastructure: Governance Gaps in Canada's Tax-based Benefit System</p>
+          <p class="pub-authors"><em>Gillian Petit</em>, Lindsay M. Tedds, and Jennifer Robson</p>
+          <p class="pub-venue">Canadian Tax Journal · Forthcoming 2026</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-forthcoming">Forthcoming</span></div>
+      </div>
+
+      <div class="pub-row" data-type="journal" data-topics="mvpf tax-admin">
+        <div class="pub-main">
+          <p class="pub-title">Beyond Cost and Yield: An MVPF-TAdmin Framework for Evaluating Tax-Administration Reforms through Public Value, Equity, and Welfare</p>
+          <p class="pub-authors"><em>Selvia Arshad</em>, <em>Gillian Petit</em>, and Lindsay M. Tedds</p>
+          <p class="pub-venue">Canadian Tax Journal · Forthcoming 2026</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-forthcoming">Forthcoming</span></div>
+      </div>
+
+      <div class="pub-row" data-type="journal" data-topics="basic-income microsimulation">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://doi.org/10.1111/capa.70050" target="_blank" rel="noopener">Income and Social Supports: An Inclusive Systems-based Approach to Cash Transfer Program Design</a></p>
+          <p class="pub-authors"><em>Gillian Petit</em> and Lindsay M. Tedds</p>
+          <p class="pub-venue">Canadian Public Administration · 2026 · doi:10.1111/capa.70050</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://doi.org/10.1111/capa.70050" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="journal" data-topics="basic-income microsimulation">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://doi.org/10.1002/pop4.419" target="_blank" rel="noopener">The Effect of Increased Earnings Exemptions and Asset Thresholds on Income Assistance Flows in British Columbia</a></p>
+          <p class="pub-authors"><em>Gillian Petit</em> and Lindsay M. Tedds</p>
+          <p class="pub-venue">Poverty and Public Policy · 2024 · 16(4), 309–322 · doi:10.1002/pop4.419</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://doi.org/10.1002/pop4.419" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="journal" data-topics="tax-admin microsimulation">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://doi.org/10.32721/ctj.2024.72.4.pf.petit" target="_blank" rel="noopener">Who Benefits?: A Critical Analysis of Canada's Federal Basic Personal Amount and Personal Tax Credits</a></p>
+          <p class="pub-authors"><em>Gillian Petit</em>, Lindsay M. Tedds, and <em>Selvia Arshad</em></p>
+          <p class="pub-venue">Canadian Tax Journal · 2024 · 72(4), 837–857 · doi:10.32721/ctj.2024.72.4.pf.petit</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://doi.org/10.32721/ctj.2024.72.4.pf.petit" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="journal" data-topics="basic-income">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://doi.org/10.60082/2817-5069.4014" target="_blank" rel="noopener">Canada Disability Benefit: Battling Ableism in Design and Implementation</a></p>
+          <p class="pub-authors">Jennifer Robson and Lindsay M. Tedds</p>
+          <p class="pub-venue">Osgoode Hall Law Journal · 2024 · 61(2), 577–608 · doi:10.60082/2817-5069.4014</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://doi.org/10.60082/2817-5069.4014" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="journal" data-topics="basic-income">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://doi.org/10.1332/17598273Y2024D000000029" target="_blank" rel="noopener">The Place of a Basic Income in the Search for a More Just Society</a></p>
+          <p class="pub-authors">David A. Green and Lindsay M. Tedds</p>
+          <p class="pub-venue">Journal of Poverty and Social Justice · 2024 · 32(3), 472–479</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://doi.org/10.1332/17598273Y2024D000000029" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="journal" data-topics="basic-income microsimulation">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://doi.org/10.3138/cpp.2023-045" target="_blank" rel="noopener">A Basic Income for Nunavut: Addressing Poverty in Canada's North</a></p>
+          <p class="pub-authors"><em>Gillian Petit</em> and Lindsay M. Tedds</p>
+          <p class="pub-venue">Canadian Public Policy · 2024 · 50(3) · doi:10.3138/cpp.2023-045</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://doi.org/10.3138/cpp.2023-045" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="journal" data-topics="">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://cjur.uwinnipeg.ca/index.php/cjur/article/view/409" target="_blank" rel="noopener">The Impact of COVID-19 on Transit Revenues in the City of Calgary</a></p>
+          <p class="pub-authors"><em>Wenshuang Yu</em>, <em>Gillian Petit</em>, and Lindsay M. Tedds</p>
+          <p class="pub-venue">Canadian Journal of Urban Research · 2024 · 33(1)</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://cjur.uwinnipeg.ca/index.php/cjur/article/view/409" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="journal" data-topics="gba">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://utppublishing.com/doi/full/10.3138/cpp.2022-064" target="_blank" rel="noopener">Igniting an Intersectional Shift in Public Policy Research (and Training)</a></p>
+          <p class="pub-authors">Lindsay M. Tedds</p>
+          <p class="pub-venue">Canadian Public Policy · 2023 · 49(1), 1–12</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://utppublishing.com/doi/full/10.3138/cpp.2022-064" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="journal" data-topics="gba">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://doi.org/10.1111/capa.12508" target="_blank" rel="noopener">Canada's GBA+ Framework in a (post)Pandemic World: Issues, Tensions, and Paths Forward</a></p>
+          <p class="pub-authors">Anna Cameron and Lindsay M. Tedds</p>
+          <p class="pub-venue">Canadian Public Administration · 2023 · 66(1), 7–27 · doi:10.1111/capa.12508</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://doi.org/10.1111/capa.12508" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="journal" data-topics="tax-admin basic-income">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://doi.org/10.32721/ctj.2021.69.1.pf.petit" target="_blank" rel="noopener">Re-envisioning the Canada Revenue Agency: From Tax Collector to Benefit Delivery Agent</a></p>
+          <p class="pub-authors"><em>Gillian Petit</em>, Lindsay M. Tedds, David A. Green, and Jonathan Rhys Kesselman</p>
+          <p class="pub-venue">Canadian Tax Journal · 2021 · 69(1), 34–52 · doi:10.32721/ctj.2021.69.1.pf.petit</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://doi.org/10.32721/ctj.2021.69.1.pf.petit" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="journal" data-topics="basic-income microsimulation">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://doi.org/10.3138/cpp.2020-054" target="_blank" rel="noopener">The Effect of Differences in Treatment of the Canada Emergency Response Benefit Across Provincial and Territorial Income Assistance Programs</a></p>
+          <p class="pub-authors"><em>Gillian Petit</em> and Lindsay M. Tedds</p>
+          <p class="pub-venue">Canadian Public Policy · 2020 · S-29–S43 · doi:10.3138/cpp.2020-054</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://doi.org/10.3138/cpp.2020-054" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="journal" data-topics="">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://utppublishing.com/doi/abs/10.3138/cpp.2015-054" target="_blank" rel="noopener">The Effects of the 2001 Extension of Paid Parental Leave Provisions on Birth Seasonality in Canada</a></p>
+          <p class="pub-authors">Janice Compton and Lindsay M. Tedds</p>
+          <p class="pub-venue">Canadian Public Policy · 2016 · 42(1), 48–65 · doi:10.3138/cpp.2015-054</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://utppublishing.com/doi/abs/10.3138/cpp.2015-054" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="journal" data-topics="property-tax">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://www.ctf.ca/EN/EN/Publications/CTJ_Contents/2014CTJ3.aspx" target="_blank" rel="noopener">User Fee Design by Canadian Municipalities: Considerations Arising from Case Law</a></p>
+          <p class="pub-authors"><em>Kelly Farish</em> and Lindsay M. Tedds</p>
+          <p class="pub-venue">Canadian Tax Journal · 2014 · 62(3), 635–670</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://www.ctf.ca/EN/EN/Publications/CTJ_Contents/2014CTJ3.aspx" target="_blank" rel="noopener" class="pub-link">CTJ ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="journal" data-topics="">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://journals.library.columbia.edu/index.php/taxlaw/article/view/2811" target="_blank" rel="noopener">Quantifying the Benefits of Backdating: A Canada–US Comparison</a></p>
+          <p class="pub-authors">Ryan A. Compton, Christopher Nicholls, Daniel Sandler, and Lindsay M. Tedds</p>
+          <p class="pub-venue">Columbia Journal of Tax Law · 2012 · 3(2), 144–175</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://journals.library.columbia.edu/index.php/taxlaw/article/view/2811" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="journal" data-topics="">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://muse.jhu.edu/pub/50/article/461869/summary" target="_blank" rel="noopener">The Feasibility of Implementing a Congestion Charge on the Halifax Peninsula: Filling the Missing Link of Implementation</a></p>
+          <p class="pub-authors">Catherine Althaus, Lindsay M. Tedds, and <em>Allen McAvoy</em></p>
+          <p class="pub-venue">Canadian Public Policy · 2011 · 37(4), 541–561</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://muse.jhu.edu/pub/50/article/461869/summary" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="journal" data-topics="">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://www.proquest.com/docview/883688169?sourcetype=Scholarly%20Journals" target="_blank" rel="noopener">Insider Reporting Obligations and Options Backdating</a></p>
+          <p class="pub-authors">Ryan A. Compton, Christopher Nicholls, Daniel Sandler, and Lindsay M. Tedds</p>
+          <p class="pub-venue">Banking and Finance Law Review · 2011 · 26(3), 473–490</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://www.proquest.com/docview/883688169?sourcetype=Scholarly%20Journals" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="journal" data-topics="tax-admin">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://link.springer.com/article/10.1007/s00181-009-0284-8" target="_blank" rel="noopener">Estimating the Income Reporting Function for the Self-employed</a></p>
+          <p class="pub-authors">Lindsay M. Tedds</p>
+          <p class="pub-venue">Empirical Economics · 2010 · 38(3), 669–687 · doi:10.1007/s00181-009-0284-8</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://link.springer.com/article/10.1007/s00181-009-0284-8" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="journal" data-topics="tax-admin">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://www.tandfonline.com/doi/abs/10.1080/00036840701858141" target="_blank" rel="noopener">Keeping it off the Books: An Empirical Investigation into the Characteristics of Firms that Engage in Tax Non-Compliance</a></p>
+          <p class="pub-authors">Lindsay M. Tedds</p>
+          <p class="pub-venue">Applied Economics · 2010 · 42(19), 2459–2473 · doi:10.1080/00036840701858141</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://www.tandfonline.com/doi/abs/10.1080/00036840701858141" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="journal" data-topics="">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://mpra.ub.uni-muenchen.de/39787/1/MPRA_paper_39787.pdf" target="_blank" rel="noopener">Options Backdating: A Canadian Perspective</a></p>
+          <p class="pub-authors">Ryan A. Compton, Daniel Sandler, and Lindsay M. Tedds</p>
+          <p class="pub-venue">Canadian Business Law Journal · 2009 · 47(3), 329–362</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://mpra.ub.uni-muenchen.de/39787/1/MPRA_paper_39787.pdf" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="journal" data-topics="tax-admin">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://www.tandfonline.com/doi/abs/10.1080/00036840210148021" target="_blank" rel="noopener">The Canadian Underground and Measured Economies: Granger Causality Results</a></p>
+          <p class="pub-authors">David E.A. Giles, Lindsay M. Tedds, and <em>Gugsa T. Wekeneh</em></p>
+          <p class="pub-venue">Applied Economics · 2002 · 34, 2347–2352 · doi:10.1080/00036840210148021</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://www.tandfonline.com/doi/abs/10.1080/00036840210148021" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="journal" data-topics="">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://www.tandfonline.com/doi/abs/10.1080/00779959809544281" target="_blank" rel="noopener">What Goes Up Must Come Down (But Not Necessarily at the Same Rate): Testing for Asymmetry in New Zealand Time Series</a></p>
+          <p class="pub-authors">Lindsay M. Tedds</p>
+          <p class="pub-venue">New Zealand Economic Papers · 1998 · doi:10.1080/00779959809544281</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://www.tandfonline.com/doi/abs/10.1080/00779959809544281" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+    </section>
+
+    <!-- ── Books ─────────────────────────────────────────── -->
+    <section class="pub-section" data-section="book">
+      <div class="pub-section-header">
+        <h2 class="pub-section-title">Books</h2>
+        <span class="pub-section-count" id="count-book"></span>
+      </div>
+
+      <div class="pub-row" data-type="book" data-topics="tax-admin">
+        <div class="pub-main">
+          <p class="pub-title">Public Finance in Canada, Seventh Canadian Edition</p>
+          <p class="pub-authors">Lindsay M. Tedds, Trevor Tombe, and Harvey S. Rosen</p>
+          <p class="pub-venue">McGraw-Hill Ryerson · Forthcoming 2027</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-forthcoming">Forthcoming</span></div>
+      </div>
+
+      <div class="pub-row" data-type="book" data-topics="basic-income">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://irpp.org/research/basic-income-and-a-just-society-policy-choices-for-canadas-social-safety-net/" target="_blank" rel="noopener">Basic Income and a Just Society: Policy Choices for Canada's Social Safety Net</a></p>
+          <p class="pub-authors">David A. Green, J. Rhys Kesselman, Daniel Perrin, <em>Gillian Petit</em>, and Lindsay M. Tedds with France St. Hilaire</p>
+          <p class="pub-venue">McGill-Queen's University Press · 2023 · Peer reviewed</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://irpp.org/research/basic-income-and-a-just-society-policy-choices-for-canadas-social-safety-net/" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="book" data-topics="tax-admin">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://www.mheducation.ca/product/public-finance-in-canada-9781265255466-can-group" target="_blank" rel="noopener">Public Finance in Canada, Sixth Canadian Edition</a></p>
+          <p class="pub-authors">Harvey S. Rosen, Lindsay M. Tedds, Trevor Tombe, Jean-Francois Wen, and Tracy Snodden</p>
+          <p class="pub-venue">McGraw-Hill Ryerson · 2023</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://www.mheducation.ca/product/public-finance-in-canada-9781265255466-can-group" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="book" data-topics="property-tax">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3484541" target="_blank" rel="noopener">User Fees in Canada: A Municipal Design and Implementation Guide</a></p>
+          <p class="pub-authors">Catherine Althaus and Lindsay M. Tedds</p>
+          <p class="pub-venue">Canadian Tax Foundation · 2016 · Peer reviewed</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3484541" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="book" data-topics="tax-admin">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1002475" target="_blank" rel="noopener">Taxes and the Canadian Underground Economy</a></p>
+          <p class="pub-authors">David E.A. Giles and Lindsay M. Tedds</p>
+          <p class="pub-venue">Canadian Tax Foundation · 2002 · Peer reviewed</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1002475" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="book" data-topics="property-tax">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3484540" target="_blank" rel="noopener">Funding the Canadian City: A National Dialogue on Municipal Taxation and Fees <span style="font-weight:300;font-style:italic;">(Edited Volume)</span></a></p>
+          <p class="pub-authors">Lisa Phillips, Enid Slack, and Lindsay M. Tedds (Eds.)</p>
+          <p class="pub-venue">Canadian Tax Foundation · 2019</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3484540" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+    </section>
+
+    <!-- ── Book Chapters ─────────────────────────────────── -->
+    <section class="pub-section" data-section="chapter">
+      <div class="pub-section-header">
+        <h2 class="pub-section-title">Book Chapters</h2>
+        <span class="pub-section-count" id="count-chapter"></span>
+      </div>
+
+      <div class="pub-row" data-type="chapter" data-topics="">
+        <div class="pub-main">
+          <p class="pub-title">The Effects of COVID-19 on Public Transit in the City of Calgary: Fiscal Impacts and Equity Considerations</p>
+          <p class="pub-authors"><em>Gillian Petit</em>, Lindsay M. Tedds, and <em>Wenshuang Yu</em></p>
+          <p class="pub-venue">In Christopher Cotton (Ed.), <em>Lasting Disruption: Economic and Social Impacts of COVID-19</em> · McGill-Queen's University Press · Forthcoming 2026</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-forthcoming">Forthcoming</span></div>
+      </div>
+
+      <div class="pub-row" data-type="chapter" data-topics="basic-income">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3850825" target="_blank" rel="noopener">Interactions between Federal and Provincial Cash Transfer Programs: The Effect of the Canada Emergency Response Benefit on Provincial Income Assistance Eligibility and Benefits</a></p>
+          <p class="pub-authors"><em>Gillian Petit</em> and Lindsay M. Tedds</p>
+          <p class="pub-venue">In Brock &amp; Hale (Eds.), <em>Managing Canadian Federalism Beyond Pandemic</em> · University of Toronto Press · 2023</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3850825" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="chapter" data-topics="gba">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://www.policyschool.ca/wp-content/uploads/2021/11/Albertas-Economic-and-Fiscal-Future.pdf" target="_blank" rel="noopener">Gender Disparities in the Labour Market? Examining the COVID-19 Pandemic in Alberta</a></p>
+          <p class="pub-authors"><em>John Baker</em>, <em>Kourtney Koebel</em>, and Lindsay M. Tedds</p>
+          <p class="pub-venue">In Mansell &amp; McKenzie (Eds.), <em>Alberta Futures</em> · University of Calgary Press · 2021</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://www.policyschool.ca/wp-content/uploads/2021/11/Albertas-Economic-and-Fiscal-Future.pdf" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="chapter" data-topics="property-tax">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3484556" target="_blank" rel="noopener">The Costs of Energy-related Linear Property on Local Governments in Canada and How they Can Potentially Be Recouped through Taxation</a></p>
+          <p class="pub-authors"><em>Brock Euper</em> and Lindsay M. Tedds</p>
+          <p class="pub-venue">In Tombe &amp; Winter (Eds.), <em>Measuring the Contribution of Energy Infrastructure</em> · University of Calgary Press · 2021</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3484556" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="chapter" data-topics="property-tax">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3484553" target="_blank" rel="noopener">Who Pays for Municipal Governments? Pursuing the User Pay Model</a></p>
+          <p class="pub-authors">Lindsay M. Tedds</p>
+          <p class="pub-venue">In Heaman (Ed.), <em>Who Pays for Canada? Taxes and Fairness</em> · McGill University Press · 2020 · Peer reviewed</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3484553" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="chapter" data-topics="property-tax">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3484558" target="_blank" rel="noopener">Non-Tax Revenue for Funding Municipal Governments: Potentials, Constraints, and Emerging Opportunities</a></p>
+          <p class="pub-authors">Lindsay M. Tedds</p>
+          <p class="pub-venue">In Phillips et al. (Eds.), <em>Funding the Canadian City</em> · Canadian Tax Foundation · 2019</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3484558" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="chapter" data-topics="property-tax">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://mpra.ub.uni-muenchen.de/96920/" target="_blank" rel="noopener">Municipal User Fees in Western Canada</a></p>
+          <p class="pub-authors">Lindsay M. Tedds</p>
+          <p class="pub-venue">In Slack &amp; Bird (Eds.), <em>Financing Municipal Infrastructure: Who Should Pay?</em> · McGill-Queen's University Press · 2017 · Peer reviewed</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://mpra.ub.uni-muenchen.de/96920/" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="chapter" data-topics="tax-admin">
+        <div class="pub-main">
+          <p class="pub-title">The Tax Treatment of Resource Exploration Expenditures: A Historical Review and a Way Forward</p>
+          <p class="pub-authors">Lindsay M. Tedds</p>
+          <p class="pub-venue">In Adams et al. (Eds.), <em>Canadian Income Tax Centennial Anniversary</em> · Canadian Tax Foundation · 2017 · Peer reviewed</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span></div>
+      </div>
+
+      <div class="pub-row" data-type="chapter" data-topics="tax-admin">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3484567" target="_blank" rel="noopener">Tax Policy Changes in the 2009 Budget: Much Ado About Stimulus?</a></p>
+          <p class="pub-authors">Lindsay M. Tedds</p>
+          <p class="pub-venue">In Beach, Dahlby &amp; Jobson (Eds.), <em>The 2009 Federal Budget</em> · Queen's University Press · 2010 · Peer reviewed</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3484567" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+    </section>
+
+    <!-- ── Policy Papers ─────────────────────────────────── -->
+    <section class="pub-section" data-section="policy">
+      <div class="pub-section-header">
+        <h2 class="pub-section-title">Peer-Reviewed Policy Papers</h2>
+        <span class="pub-section-count" id="count-policy"></span>
+      </div>
+
+      <div class="pub-row" data-type="policy" data-topics="gba">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://rsc-src.ca/en/covid-19-policy-briefing/impacts-covid-19-pandemic-women-in-canada" target="_blank" rel="noopener">Impacts of the COVID-19 Pandemic on Women in Canada</a></p>
+          <p class="pub-authors">Jennifer Robson, Lindsay M. Tedds, et al.</p>
+          <p class="pub-venue">Royal Society of Canada · 2022</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://rsc-src.ca/en/covid-19-policy-briefing/impacts-covid-19-pandemic-women-in-canada" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="policy" data-topics="str">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://ssrn.com/abstract=4048253" target="_blank" rel="noopener">Why Existing Regulatory Frameworks Fail in the Short-term Rental Market: Exploring the Role of Regulatory Fractures</a></p>
+          <p class="pub-authors">Lindsay M. Tedds, Anna Cameron, Mukesh Khanal, Daria Crisan</p>
+          <p class="pub-venue">The School of Public Policy Publications · 2021 · 14(26), 1–42</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://ssrn.com/abstract=4048253" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="policy" data-topics="gba">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://mpra.ub.uni-muenchen.de/108221/" target="_blank" rel="noopener">Gender Disparities in the Labour Market? Examining the COVID-19 Pandemic in Alberta</a></p>
+          <p class="pub-authors"><em>John Baker</em>, <em>Kourtney Koebel</em>, and Lindsay M. Tedds</p>
+          <p class="pub-venue">The School of Public Policy Publications · 2021 · 14(18), 1–37</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://mpra.ub.uni-muenchen.de/108221/" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="policy" data-topics="basic-income">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://rsc-src.ca/en/voices/covid-19-policy-briefing/economic-recovery/renewing-social-contract-economic-recovery-in" target="_blank" rel="noopener">Renewing the Social Contract: Economic Recovery in Canada from COVID-19</a></p>
+          <p class="pub-authors">Christopher McCabe, Vic Adamowicz, Robin Boadway, et al.</p>
+          <p class="pub-venue">Royal Society of Canada · 2020</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://rsc-src.ca/en/voices/covid-19-policy-briefing/economic-recovery/renewing-social-contract-economic-recovery-in" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="policy" data-topics="basic-income microsimulation">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://www.policyschool.ca/wp-content/uploads/2020/07/Less-Income-More-Work-Petit-et-al.pdf" target="_blank" rel="noopener">Less Income for More Hours of Work: Barriers to Work for Social Assistance Recipients in BC</a></p>
+          <p class="pub-authors"><em>Gillian Petit</em>, Craig Scott, <em>Blake Gallacher</em>, Jennifer Zwicker, and Lindsay M. Tedds</p>
+          <p class="pub-venue">The School of Public Policy Publications · 2020 · 13(11), 1–16</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://www.policyschool.ca/wp-content/uploads/2020/07/Less-Income-More-Work-Petit-et-al.pdf" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="policy" data-topics="basic-income">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://www.policyschool.ca/wp-content/uploads/2020/05/Basic-Income-Green-Kesselman-Tedds.pdf" target="_blank" rel="noopener">Considerations for a Basic Income as a COVID-19 Response</a></p>
+          <p class="pub-authors">David A. Green, Jonathan Rhys Kesselman, and Lindsay M. Tedds</p>
+          <p class="pub-venue">The School of Public Policy Publications · 2020 · 13(11), 1–16</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://www.policyschool.ca/wp-content/uploads/2020/05/Basic-Income-Green-Kesselman-Tedds.pdf" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="policy" data-topics="tax-admin">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://www.policyschool.ca/wp-content/uploads/2016/10/Insider-Trading-TeddsFINAL.pdf" target="_blank" rel="noopener">Do Insiders Comply with Disclosure Rules?: Evidence from Canada, 1996–2011</a></p>
+          <p class="pub-authors">Lindsay M. Tedds</p>
+          <p class="pub-venue">The School of Public Policy Publications · 2016 · 9(30), 1–34</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://www.policyschool.ca/wp-content/uploads/2016/10/Insider-Trading-TeddsFINAL.pdf" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+    </section>
+
+    <!-- ── Internally Reviewed Policy Papers ────────────── -->
+    <section class="pub-section" data-section="policy-internal">
+      <div class="pub-section-header">
+        <h2 class="pub-section-title">Internally Reviewed Policy Papers</h2>
+        <span class="pub-section-count" id="count-policy-internal"></span>
+      </div>
+
+      <div class="pub-row" data-type="policy-internal" data-topics="tax-admin microsimulation">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://journalhosting.ucalgary.ca/index.php/sppp/article/view/75569/56016" target="_blank" rel="noopener">Implications of Taxation Without Indexation in Alberta</a></p>
+          <p class="pub-authors">Lindsay M. Tedds and <em>Gillian Petit</em></p>
+          <p class="pub-venue">The School of Public Policy Publications · 2022 · Vol. 15</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://journalhosting.ucalgary.ca/index.php/sppp/article/view/75569/56016" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="policy-internal" data-topics="microsimulation">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://journalhosting.ucalgary.ca/index.php/sppp/article/view/75774/56075" target="_blank" rel="noopener">Census 2020: Government Transfers to Albertans</a></p>
+          <p class="pub-authors"><em>Gillian Petit</em> and Lindsay M. Tedds</p>
+          <p class="pub-venue">The School of Public Policy Publications · 2022 · Vol. 15</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://journalhosting.ucalgary.ca/index.php/sppp/article/view/75774/56075" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="policy-internal" data-topics="microsimulation">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://www.policyschool.ca/wp-content/uploads/2021/09/TPT-CPC-ChildCarePlan-Petit-Tedds-Schirle.pdf" target="_blank" rel="noopener">An Examination of the Conservative Party of Canada's Proposed Childcare Refundable Tax Credit</a></p>
+          <p class="pub-authors"><em>Gillian Petit</em>, Lindsay M. Tedds, and Tammy Schirle</p>
+          <p class="pub-venue">The School of Public Policy Publications · 2021 · Vol. 14</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://www.policyschool.ca/wp-content/uploads/2021/09/TPT-CPC-ChildCarePlan-Petit-Tedds-Schirle.pdf" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="policy-internal" data-topics="basic-income microsimulation">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://www.policyschool.ca/wp-content/uploads/2021/02/FPT-covid-social-assistance.pdf" target="_blank" rel="noopener">COVID-19 &amp; Trends in Income Assistance Caseloads</a></p>
+          <p class="pub-authors"><em>Gillian Petit</em> and Lindsay M. Tedds</p>
+          <p class="pub-venue">The School of Public Policy Publications · 2021 · Vol. 14</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://www.policyschool.ca/wp-content/uploads/2021/02/FPT-covid-social-assistance.pdf" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="policy-internal" data-topics="microsimulation">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://www.policyschool.ca/wp-content/uploads/2020/11/FPT-AB-child-subsidy.pdf" target="_blank" rel="noopener">Analyzing Changes to Alberta's Child Care Subsidy</a></p>
+          <p class="pub-authors">Rob Buschmann, Jennifer Fischer-Summers, <em>Gillian Petit</em>, Anna Cameron, and Lindsay M. Tedds</p>
+          <p class="pub-venue">The School of Public Policy Publications · 2020 · Vol. 13</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://www.policyschool.ca/wp-content/uploads/2020/11/FPT-AB-child-subsidy.pdf" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="policy-internal" data-topics="gba">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3781960" target="_blank" rel="noopener">The Gendered Implications of an Infrastructure Focused Recovery</a></p>
+          <p class="pub-authors">Anna Cameron, <em>Vanessa Morin</em>, and Lindsay M. Tedds</p>
+          <p class="pub-venue">The School of Public Policy Publications · 2020 · Vol. 13</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3781960" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="policy-internal" data-topics="basic-income">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://www.policyschool.ca/wp-content/uploads/2020/03/COVID19-policy-response-Petit-Tedds.pdf" target="_blank" rel="noopener">The Federal Government's Policy Response to COVID-19: Acting Quickly and Decisively</a></p>
+          <p class="pub-authors"><em>Gillian Petit</em> and Lindsay M. Tedds</p>
+          <p class="pub-venue">The School of Public Policy Publications · March 2020</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://www.policyschool.ca/wp-content/uploads/2020/03/COVID19-policy-response-Petit-Tedds.pdf" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="policy-internal" data-topics="tax-admin basic-income">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://www.policyschool.ca/wp-content/uploads/2020/02/Tax-policy-Trends-Feb-2020.pdf" target="_blank" rel="noopener">The Merits of Automatic Income Tax Assessments for Low-Income Canadians</a></p>
+          <p class="pub-authors">Anna Cameron, Lindsay M. Tedds, Jennifer Robson, and Saul Schwartz</p>
+          <p class="pub-venue">The School of Public Policy Publications · February 2020</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://www.policyschool.ca/wp-content/uploads/2020/02/Tax-policy-Trends-Feb-2020.pdf" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="policy-internal" data-topics="basic-income microsimulation">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://www.policyschool.ca/wp-content/uploads/2019/11/TPT-AB-child-family-benefit-FINALNov6.pdf" target="_blank" rel="noopener">The Alberta Child and Family Benefit — Who Gains and Who Loses?</a></p>
+          <p class="pub-authors">Anna Cameron, <em>Gillian Petit</em>, and Lindsay M. Tedds</p>
+          <p class="pub-venue">The School of Public Policy Publications · 2019 · Vol. 12</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://www.policyschool.ca/wp-content/uploads/2019/11/TPT-AB-child-family-benefit-FINALNov6.pdf" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+    </section>
+
+    <!-- ── Policy Papers (non-peer-reviewed) ─────────────── -->
+    <section class="pub-section" data-section="policy-nonpr">
+      <div class="pub-section-header">
+        <h2 class="pub-section-title">Policy Papers</h2>
+        <span class="pub-section-count" id="count-policy-nonpr"></span>
+      </div>
+
+      <div class="pub-row" data-type="policy-nonpr" data-topics="gba basic-income">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4487319" target="_blank" rel="noopener">Economic Security Policy and Canada's National Action Plan to End Gender-based Violence: Is there a Role for Cash Transfers in Addressing Intimate Partner Violence?</a></p>
+          <p class="pub-authors">Anna Cameron, Lindsay M. Tedds, and <em>Wenshuang Yu</em></p>
+          <p class="pub-venue">Research paper prepared for Women and Gender Equality Canada · 2023</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4487319" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="policy-nonpr" data-topics="basic-income">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://www.policynote.ca/11-steps/" target="_blank" rel="noopener">11 Steps Towards a More Just Society for Budgets '22 and Beyond</a></p>
+          <p class="pub-authors">David Green, Lindsay M. Tedds, Rhys Kesselman, and Daniel Perrin</p>
+          <p class="pub-venue">CCPA Policy Note · August 2021</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://www.policynote.ca/11-steps/" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="policy-nonpr" data-topics="gba basic-income">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3837386" target="_blank" rel="noopener">Gender-based Violence, Economic Security, and the Potential of Basic Income: A Discussion Paper</a></p>
+          <p class="pub-authors">Anna Cameron and Lindsay M. Tedds</p>
+          <p class="pub-venue">Research paper commissioned by the Expert Panel on a National Strategy for Ending Gender-based Violence · 2021</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3837386" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="policy-nonpr" data-topics="tax-admin">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://www.sshrc-crsh.gc.ca/society-societe/community-communite/ifca-iac/evidence_briefs-donnees_probantes/skills_work_digital_economy-competences_travail_economie_numerique/tedds_flaim_petit-eng.aspx" target="_blank" rel="noopener">Canada Revenue Agency and Tax Administration: Re-envisioning Tax and Benefit Administration in the Age of Digitalization</a></p>
+          <p class="pub-authors"><em>Marina Flaim</em>, <em>Gillian Petit</em>, and Lindsay M. Tedds</p>
+          <p class="pub-venue">Prepared for SSHRC and the Government of Canada's Future Skills Centre · 2021</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://www.sshrc-crsh.gc.ca/society-societe/community-communite/ifca-iac/evidence_briefs-donnees_probantes/skills_work_digital_economy-competences_travail_economie_numerique/tedds_flaim_petit-eng.aspx" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="policy-nonpr" data-topics="basic-income">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://cdhowe.org/publication/gillezeau-petit-tedds---recommendations-immediate-provincial-policy-responses/" target="_blank" rel="noopener">Recommendations for Immediate Provincial Policy Responses to COVID-19</a></p>
+          <p class="pub-authors">Rob Gillezeau, <em>Gillian Petit</em>, and Lindsay M. Tedds</p>
+          <p class="pub-venue">Intelligence Memo, C.D. Howe Institute · March 2020</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://cdhowe.org/publication/gillezeau-petit-tedds---recommendations-immediate-provincial-policy-responses/" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="policy-nonpr" data-topics="basic-income">
+        <div class="pub-main">
+          <p class="pub-title">Income Support for Low-Income Workers: A Holistic Approach for Supporting Ontario's Working Poor</p>
+          <p class="pub-authors">Lindsay M. Tedds</p>
+          <p class="pub-venue">Ontario 360 · April 2018</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span></div>
+      </div>
+
+      <div class="pub-row" data-type="policy-nonpr" data-topics="basic-income tax-admin">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://www.northernpolicy.ca/upload/documents/publications/reports-new/tedds_big-and-pit-en.pdf" target="_blank" rel="noopener">How the Canadian Income Tax System Facilitates and Impedes the Implementation of a Basic Income Guarantee</a></p>
+          <p class="pub-authors">Lindsay M. Tedds</p>
+          <p class="pub-venue">Northern Policy Institute · 2017</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://www.northernpolicy.ca/upload/documents/publications/reports-new/tedds_big-and-pit-en.pdf" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="pub-row" data-type="policy-nonpr" data-topics="">
+        <div class="pub-main">
+          <p class="pub-title"><a href="https://mpra.ub.uni-muenchen.de/96927/1/Kijiji-Index-Report-2016-1.pdf" target="_blank" rel="noopener">The Kijiji Second-hand Economy Index: 2016 Report</a></p>
+          <p class="pub-authors">Fabien Durif, <em>Myriam Ertz</em>, and Lindsay M. Tedds</p>
+          <p class="pub-venue">Environics Communication, Toronto · 2016</p>
+        </div>
+        <div class="pub-right"><span class="pub-badge badge-available">Available</span><a href="https://mpra.ub.uni-muenchen.de/96927/1/Kijiji-Index-Report-2016-1.pdf" target="_blank" rel="noopener" class="pub-link">Read ↗</a></div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <span class="footer-name">Lindsay M. Tedds</span>
+    <ul class="footer-links">
+      <li><a href="/research">Research</a></li>
+      <li><a href="/publications">Publications</a></li>
+      <li><a href="/media">Media</a></li>
+      <li><a href="/cv">CV</a></li>
+      <li><a href="/disclosure">Disclosure</a></li>
+      <li><a href="mailto:lindsay.tedds1@ucalgary.ca">Contact</a></li>
+    </ul>
+    <p class="footer-copy">&copy; 2026 Lindsay M. Tedds</p>
+  </footer>
+  <div class="palette-strip"><div class="ps1"></div><div class="ps2"></div><div class="ps3"></div><div class="ps4"></div></div>
+
+  <script>
+    const rows = document.querySelectorAll('.pub-row');
+    const sections = document.querySelectorAll('.pub-section');
+    const noResults = document.getElementById('no-results');
+    const filterCount = document.getElementById('filter-count');
+
+    let activeType = 'all';
+    let activeTopic = 'all';
+
+    function applyFilters() {
+      let visible = 0;
+
+      rows.forEach(row => {
+        const type = row.dataset.type;
+        const topics = (row.dataset.topics || '').split(' ').filter(Boolean);
+        const matchType = activeType === 'all' || type === activeType;
+        const matchTopic = activeTopic === 'all' || topics.includes(activeTopic);
+        const show = matchType && matchTopic;
+        row.dataset.hidden = show ? 'false' : 'true';
+        if (show) visible++;
+      });
+
+      // Update section visibility and counts
+      sections.forEach(section => {
+        const sectionType = section.dataset.section;
+        const sectionRows = section.querySelectorAll('.pub-row:not([data-hidden="true"])');
+        const count = sectionRows.length;
+        const countEl = section.querySelector('.pub-section-count');
+        if (countEl) countEl.textContent = count === 1 ? '1 item' : `${count} items`;
+
+        const typeMatch = activeType === 'all' || sectionType === activeType;
+        section.dataset.empty = (!typeMatch || count === 0) ? 'true' : 'false';
+      });
+
+      filterCount.textContent = `${visible} publication${visible !== 1 ? 's' : ''}`;
+      noResults.classList.toggle('visible', visible === 0);
+    }
+
+    // Type filter
+    document.querySelectorAll('[data-filter-type]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('[data-filter-type]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeType = btn.dataset.filterType;
+        applyFilters();
+      });
+    });
+
+    // Topic filter
+    document.querySelectorAll('[data-filter-topic]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('[data-filter-topic]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeTopic = btn.dataset.filterTopic;
+        applyFilters();
+      });
+    });
+
+    // Init
+    applyFilters();
+  </script>
+
+</body>
+</html>

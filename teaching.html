@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teaching | Lindsay M. Tedds</title>
+  <meta name="description" content="Teaching by Lindsay M. Tedds, Professor of Economics at the University of Calgary — courses in public finance, micro and macroeconomics, and graduate supervision.">
+  <link rel="canonical" href="https://lindsaytedds.ca/teaching">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Teaching | Lindsay M. Tedds">
+  <meta property="og:url" content="https://lindsaytedds.ca/teaching">
+  <meta property="og:site_name" content="Lindsay M. Tedds">
+  <meta name="robots" content="index, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink:#1c2b3a; --ink-mid:#2d4060; --green:#3d6b5e; --green-light:#6a9e8f; --green-pale:#e8f3f0;
+      --steel:#4a6080; --steel-light:#a8b8c8; --cream:#f5f3ee; --border:#dcd7cc; --white:#ffffff;
+      --text:#1c2b3a; --text-muted:#6a7a8a;
+      --serif:'Cormorant Garamond',Georgia,serif; --sans:'DM Sans',system-ui,sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--sans);background:var(--cream);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+
+    /* Nav */
+    .site-nav{position:sticky;top:0;z-index:100;background:var(--cream);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:60px}
+    .nav-name{font-family:var(--serif);font-size:18px;font-weight:500;color:var(--ink)}
+    .nav-links{display:flex;gap:32px;list-style:none}
+    .nav-links a{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--steel);transition:color .2s}
+    .nav-links a:hover,.nav-links a.active{color:var(--green)}
+
+    /* Page header */
+    .page-header{background:var(--ink);padding:56px 48px 52px}
+    .page-header-eyebrow{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--green-light);margin-bottom:16px}
+    .page-header h1{font-family:var(--serif);font-size:48px;font-weight:300;color:#f0ece4;line-height:1.1;margin-bottom:20px}
+    .page-header-rule{width:44px;height:2px;background:var(--green);margin-bottom:20px}
+    .page-header-desc{font-family:var(--serif);font-size:17px;font-weight:300;font-style:italic;color:var(--steel-light);max-width:640px;line-height:1.75}
+
+    /* Main layout */
+    .site-main{padding:52px 48px 80px;display:grid;grid-template-columns:1fr 300px;gap:52px;align-items:start;max-width:1200px;margin:0 auto}
+    .main-col{min-width:0}
+    .side-col{}
+
+    /* Section headers */
+    .section-header{display:flex;align-items:baseline;gap:12px;margin-bottom:24px;padding-bottom:12px;border-bottom:2px solid var(--green);flex-wrap:wrap}
+    .section-title{font-family:var(--serif);font-size:22px;font-weight:400;color:var(--ink)}
+    .section-note{font-family:var(--serif);font-size:14px;font-style:italic;color:var(--text-muted);margin-left:auto}
+
+    /* Course cards — current courses */
+    .course-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:52px}
+    .course-card{background:var(--white);border-top:2px solid var(--green);padding:22px 22px 20px;box-shadow:0 1px 4px rgba(28,43,58,.05)}
+    .course-level{font-size:9px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--green);margin-bottom:8px}
+    .course-code{font-size:11px;color:var(--text-muted);margin-bottom:4px}
+    .course-name{font-family:var(--serif);font-size:17px;font-weight:400;color:var(--ink);margin-bottom:10px;line-height:1.35}
+    .course-desc{font-size:13px;color:var(--text-muted);line-height:1.65;margin-bottom:12px}
+    .course-meta{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+    .course-tag{font-size:10px;color:var(--steel);border:1px solid var(--border);padding:2px 7px;border-radius:2px}
+    .course-cal-link{font-size:11px;color:var(--steel);border-bottom:1px solid var(--border);padding-bottom:1px;transition:color .2s,border-color .2s;margin-left:auto}
+    .course-cal-link:hover{color:var(--green);border-color:var(--green-light)}
+
+    /* Past courses table */
+    .past-section{margin-bottom:48px}
+    .institution-block{margin-bottom:32px}
+    .institution-name{font-family:var(--serif);font-size:15px;font-weight:500;color:var(--ink);margin-bottom:4px}
+    .institution-dates{font-size:11px;color:var(--text-muted);margin-bottom:12px}
+    .past-course-list{display:flex;flex-direction:column;gap:0}
+    .past-course-row{display:grid;grid-template-columns:80px 1fr 120px;gap:12px;align-items:baseline;padding:8px 0;border-bottom:1px solid var(--border);font-size:13px}
+    .past-course-row:last-child{border-bottom:none}
+    .past-course-code{color:var(--steel);font-size:12px;font-weight:500}
+    .past-course-name{color:var(--ink)}
+    .past-course-years{color:var(--text-muted);font-size:11px;text-align:right}
+
+    /* Supervision sidebar */
+    .supervision-card{background:var(--white);border-top:2px solid var(--green);padding:22px;box-shadow:0 1px 4px rgba(28,43,58,.05);margin-bottom:24px}
+    .supervision-title{font-family:var(--serif);font-size:17px;font-weight:400;color:var(--ink);margin-bottom:16px}
+    .supervision-group{margin-bottom:18px}
+    .supervision-group:last-child{margin-bottom:0}
+    .supervision-group-label{font-size:9px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--green);margin-bottom:8px}
+    .supervision-student{font-size:13px;color:var(--text-muted);padding:5px 0;border-bottom:1px solid var(--border);line-height:1.4}
+    .supervision-student:last-child{border-bottom:none}
+    .supervision-student strong{color:var(--ink);font-weight:400;display:block;font-size:13px}
+    .supervision-student span{font-size:11px}
+
+    /* Stats strip */
+    .stats-strip{background:var(--ink);padding:24px 22px;margin-bottom:24px}
+    .stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .stat-item{}
+    .stat-num{font-family:var(--serif);font-size:28px;font-weight:300;color:#f0ece4;line-height:1}
+    .stat-label{font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--steel-light);margin-top:4px}
+
+    /* Footer */
+    .site-footer{background:var(--ink);padding:40px 48px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .footer-name{font-family:var(--serif);font-size:16px;color:#c8d4de}
+    .footer-links{display:flex;gap:28px;list-style:none}
+    .footer-links a{font-size:11px;letter-spacing:0.07em;text-transform:uppercase;color:#6a8090;transition:color .2s}
+    .footer-links a:hover{color:var(--green-light)}
+    .footer-copy{font-size:11px;color:#4a6070}
+    .palette-strip{height:3px;display:flex}
+    .ps1{flex:4;background:var(--ink)}.ps2{flex:2;background:var(--green)}.ps3{flex:2;background:var(--steel)}.ps4{flex:1;background:var(--green-light)}
+
+    @media(max-width:1100px){
+      .site-main{grid-template-columns:1fr;gap:40px}
+      .side-col{order:-1}
+      .stats-strip .stats-grid{grid-template-columns:repeat(4,1fr)}
+    }
+    @media(max-width:860px){
+      .site-nav,.page-header,.site-main,.site-footer{padding-left:24px;padding-right:24px}
+      .nav-links{display:none}
+      .page-header h1{font-size:36px}
+      .course-grid{grid-template-columns:1fr}
+      .past-course-row{grid-template-columns:70px 1fr;gap:8px}
+      .past-course-years{display:none}
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <a href="/" class="nav-name">Lindsay M. Tedds</a>
+    <ul class="nav-links">
+      <li><a href="/research">Research</a></li>
+      <li><a href="/publications">Publications</a></li>
+      <li><a href="/media">Media</a></li>
+      <li><a href="/teaching" class="active">Teaching</a></li>
+      <li><a href="/cv">CV</a></li>
+      <li><a href="/disclosure">Disclosure</a></li>
+    </ul>
+  </nav>
+
+  <header class="page-header">
+    <p class="page-header-eyebrow">Lindsay M. Tedds</p>
+    <h1>Teaching</h1>
+    <div class="page-header-rule"></div>
+    <p class="page-header-desc">I teach at the undergraduate and graduate levels, with a focus on public finance, tax policy, and economic analysis. I am committed to making economics accessible and policy-relevant — and to training students to think rigorously across disciplinary boundaries.</p>
+  </header>
+
+  <main class="site-main">
+    <div class="main-col">
+
+      <!-- ── CURRENT COURSES ─────────────────────────── -->
+      <div style="margin-bottom:52px">
+        <div class="section-header">
+          <h2 class="section-title">Current Courses</h2>
+          <span class="section-note">University of Calgary</span>
+        </div>
+
+        <div class="course-grid">
+
+          <div class="course-card">
+            <div class="course-level">Undergraduate</div>
+            <div class="course-code">ECON 201</div>
+            <div class="course-name">Principles of Microeconomics</div>
+            <p class="course-desc">Principles of consumption, production, and exchange; market and firm equilibrium under different competitive conditions. Applied to contemporary problems in the Canadian economy.</p>
+            <div class="course-meta">
+              <span class="course-tag">Fall</span>
+              <span class="course-tag">~390 students</span>
+              <a href="https://calendar.ucalgary.ca/courses/1092651" target="_blank" rel="noopener" class="course-cal-link">Calendar ↗</a>
+            </div>
+          </div>
+
+          <div class="course-card">
+            <div class="course-level">Undergraduate</div>
+            <div class="course-code">ECON 203</div>
+            <div class="course-name">Principles of Macroeconomics</div>
+            <p class="course-desc">Measurement of economic activity, economic growth, money and financial systems, international economy and exchange rates, business cycles, unemployment and inflation, and macroeconomic policies.</p>
+            <div class="course-meta">
+              <span class="course-tag">Spring · Summer · Winter</span>
+              <span class="course-tag">80–330 students</span>
+              <a href="https://calendar.ucalgary.ca/courses/1092671" target="_blank" rel="noopener" class="course-cal-link">Calendar ↗</a>
+            </div>
+          </div>
+
+          <div class="course-card">
+            <div class="course-level">Undergraduate</div>
+            <div class="course-code">ECON 355</div>
+            <div class="course-name">Canadian Public Finance</div>
+            <p class="course-desc">Examination of the institutions and economic rationale behind Canadian government policy on public expenditures and taxation — including the history and structure of government spending and revenue, tax expenditures, the budgetary process, inter-jurisdictional issues, and program design.</p>
+            <div class="course-meta">
+              <span class="course-tag">Fall</span>
+              <span class="course-tag">~150 students</span>
+              <a href="https://calendar.ucalgary.ca/courses/1093241" target="_blank" rel="noopener" class="course-cal-link">Calendar ↗</a>
+            </div>
+          </div>
+
+          <div class="course-card">
+            <div class="course-level">Graduate</div>
+            <div class="course-code">ECON 653</div>
+            <div class="course-name">Public Revenue Analysis</div>
+            <p class="course-desc">Graduate-level analysis of public revenue systems from an economic perspective, including theories of taxation, efficiency and equity in tax policy, tax incidence, and Canadian revenue policy design.</p>
+            <div class="course-meta">
+              <span class="course-tag">Winter</span>
+              <span class="course-tag">Graduate seminar</span>
+              <a href="https://calendar.ucalgary.ca/courses" target="_blank" rel="noopener" class="course-cal-link">Calendar ↗</a>
+            </div>
+          </div>
+
+          <div class="course-card">
+            <div class="course-level">Graduate</div>
+            <div class="course-code">ECON 711</div>
+            <div class="course-name">Microsimulation Modelling for Policy Analysis</div>
+            <p class="course-desc">Graduate directed study in the application of microsimulation models to Canadian policy analysis — covering model design, data sources, simulation techniques, and the communication of distributional findings to policy audiences.</p>
+            <div class="course-meta">
+              <span class="course-tag">Spring/Summer</span>
+              <span class="course-tag">Directed study</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ── PREVIOUS COURSES ───────────────────────── -->
+      <div class="past-section">
+        <div class="section-header">
+          <h2 class="section-title">Previous Courses</h2>
+        </div>
+
+        <!-- UCalgary — PPOL -->
+        <div class="institution-block">
+          <div class="institution-name">University of Calgary — School of Public Policy</div>
+          <div class="institution-dates">2018–2022</div>
+          <div class="past-course-list">
+            <div class="past-course-row">
+              <span class="past-course-code">PPOL 601</span>
+              <span class="past-course-name">Analytical Foundations</span>
+              <span class="past-course-years">2020</span>
+            </div>
+            <div class="past-course-row">
+              <span class="past-course-code">PPOL 605</span>
+              <span class="past-course-name">Markets and Public Policy</span>
+              <span class="past-course-years">2019, 2020, 2022</span>
+            </div>
+            <div class="past-course-row">
+              <span class="past-course-code">PPOL 611</span>
+              <span class="past-course-name">Gender, Politics, and Public Policy</span>
+              <span class="past-course-years">2019</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- UVic -->
+        <div class="institution-block">
+          <div class="institution-name">University of Victoria — School of Public Administration</div>
+          <div class="institution-dates">2007–2018</div>
+          <div class="past-course-list">
+            <div class="past-course-row">
+              <span class="past-course-code">ADMN 502A</span>
+              <span class="past-course-name">Research Design: Critical Appraisal</span>
+              <span class="past-course-years">2007–2010</span>
+            </div>
+            <div class="past-course-row">
+              <span class="past-course-code">ADMN 503</span>
+              <span class="past-course-name">Economic Policy Analysis</span>
+              <span class="past-course-years">2008</span>
+            </div>
+            <div class="past-course-row">
+              <span class="past-course-code">ADMN 509</span>
+              <span class="past-course-name">Microeconomics for Policy Analysis / Public Sector Economics</span>
+              <span class="past-course-years">2010–2017</span>
+            </div>
+            <div class="past-course-row">
+              <span class="past-course-code">ADMN 518</span>
+              <span class="past-course-name">Economic Policy Analysis</span>
+              <span class="past-course-years">2008–2012</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- UManitoba -->
+        <div class="institution-block">
+          <div class="institution-name">University of Manitoba — Department of Economics</div>
+          <div class="institution-dates">2005–2007</div>
+          <div class="past-course-list">
+            <div class="past-course-row">
+              <span class="past-course-code">ECON 1200</span>
+              <span class="past-course-name">Principles of Economics (Micro)</span>
+              <span class="past-course-years">2005, 2006</span>
+            </div>
+            <div class="past-course-row">
+              <span class="past-course-code">ECON 3170</span>
+              <span class="past-course-name">Introduction to Quantitative Methods</span>
+              <span class="past-course-years">2005, 2006</span>
+            </div>
+            <div class="past-course-row">
+              <span class="past-course-code">ECON 3180</span>
+              <span class="past-course-name">Introduction to Econometrics</span>
+              <span class="past-course-years">2006, 2007</span>
+            </div>
+            <div class="past-course-row">
+              <span class="past-course-code">ECON 4130</span>
+              <span class="past-course-name">Seminar in Econometrics</span>
+              <span class="past-course-years">2006, 2007</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- McMaster -->
+        <div class="institution-block">
+          <div class="institution-name">McMaster University — Department of Economics</div>
+          <div class="institution-dates">2005</div>
+          <div class="past-course-list">
+            <div class="past-course-row">
+              <span class="past-course-code">ECON 4A03</span>
+              <span class="past-course-name">Honours Seminar: Public Economics &amp; Policy</span>
+              <span class="past-course-years">2005</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── SIDEBAR ────────────────────────────────── -->
+    <div class="side-col">
+
+      <!-- Stats -->
+      <div class="stats-strip">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-num">20+</div>
+            <div class="stat-label">Years teaching</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">4</div>
+            <div class="stat-label">Universities</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">3</div>
+            <div class="stat-label">PhD students</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">30+</div>
+            <div class="stat-label">Master's students</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PhD Supervision -->
+      <div class="supervision-card">
+        <div class="supervision-title">Graduate Supervision</div>
+
+        <div class="supervision-group">
+          <div class="supervision-group-label">PhD — Current</div>
+          <div class="supervision-student">
+            <strong>Selvia Arshad</strong>
+            <span>Economics, University of Calgary · 2023–present</span>
+          </div>
+        </div>
+
+        <div class="supervision-group">
+          <div class="supervision-group-label">PhD — Completed</div>
+          <div class="supervision-student">
+            <strong>Gillian Petit</strong>
+            <span>Economics, University of Calgary · 2019–2022</span>
+          </div>
+          <div class="supervision-student">
+            <strong>Adian McFarlane</strong>
+            <span>Economics, University of Manitoba · 2006–2009</span>
+          </div>
+        </div>
+
+        <div class="supervision-group">
+          <div class="supervision-group-label">Master's — Selected</div>
+          <div class="supervision-student">
+            <strong>Karina Miramon, Jasmine Lapina, Tomi Ajele, Aben Nyah</strong>
+            <span>MPP, University of Calgary · 2022</span>
+          </div>
+          <div class="supervision-student">
+            <strong>Kayla Doody, Bill Yang, Dana Van Baren, Jasmine Mian, Joseph Calnan, Taylor Berezowski, Vanessa Morin</strong>
+            <span>MPP, University of Calgary · 2020–2021</span>
+          </div>
+          <div class="supervision-student">
+            <strong>Ellen Reynolds, Justine Farrell, Keith Preston</strong>
+            <span>MPA, University of Victoria · 2014–2015</span>
+          </div>
+          <div class="supervision-student">
+            <strong>Kelly Farish, Jing Ting</strong>
+            <span>MPA/JD, University of Victoria · 2011–2012</span>
+          </div>
+          <div class="supervision-student">
+            <strong>Tamara Checkley, Allen McAvoy, Peter Pokorny, Michael Braun</strong>
+            <span>MPA, University of Victoria · 2007–2009</span>
+          </div>
+          <div class="supervision-student">
+            <strong>Nurlybek Nurmagambetov</strong>
+            <span>MA Economics, University of Manitoba · 2007–2008</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <span class="footer-name">Lindsay M. Tedds</span>
+    <ul class="footer-links">
+      <li><a href="/research">Research</a></li>
+      <li><a href="/publications">Publications</a></li>
+      <li><a href="/media">Media</a></li>
+      <li><a href="/teaching">Teaching</a></li>
+      <li><a href="/cv">CV</a></li>
+      <li><a href="/disclosure">Disclosure</a></li>
+      <li><a href="mailto:lindsay.tedds1@ucalgary.ca">Contact</a></li>
+    </ul>
+    <p class="footer-copy">&copy; 2026 Lindsay M. Tedds</p>
+  </footer>
+  <div class="palette-strip"><div class="ps1"></div><div class="ps2"></div><div class="ps3"></div><div class="ps4"></div></div>
+
+</body>
+</html>

@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lindsay M. Tedds | Professor of Economics, University of Calgary</title>
+  <meta name="description" content="Lindsay M. Tedds is a Professor of Economics at the University of Calgary specialising in public finance, tax policy, social policy, and fiscal equity in Canada.">
+  <meta name="keywords" content="Lindsay Tedds, public finance, tax policy, social policy, economics, University of Calgary, basic income, property tax, fiscal equity, Canada">
+  <link rel="canonical" href="https://lindsaytedds.ca/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Lindsay M. Tedds | Professor of Economics">
+  <meta property="og:description" content="Public finance economist studying how tax and fiscal policy shapes equity, access, and well-being in Canada.">
+  <meta property="og:url" content="https://lindsaytedds.ca/">
+  <meta property="og:site_name" content="Lindsay M. Tedds">
+  <meta name="robots" content="index, follow">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── Design tokens ─────────────────────────────────── */
+    :root {
+      --ink:        #1c2b3a;
+      --ink-mid:    #2d4060;
+      --green:      #3d6b5e;
+      --green-light:#6a9e8f;
+      --green-pale: #e8f3f0;
+      --steel:      #4a6080;
+      --steel-light:#a8b8c8;
+      --cream:      #f5f3ee;
+      --cream-dark: #ece9e2;
+      --border:     #dcd7cc;
+      --white:      #ffffff;
+      --text:       #1c2b3a;
+      --text-mid:   #2a3a4a;
+      --text-muted: #6a7a8a;
+
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans:  'DM Sans', system-ui, sans-serif;
+    }
+
+    /* ── Reset ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ── Nav ────────────────────────────────────────────── */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--cream);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 60px;
+    }
+    .nav-name {
+      font-family: var(--serif);
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--ink);
+      letter-spacing: 0.01em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--steel);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--green); }
+
+    /* ── Hero ───────────────────────────────────────────── */
+    .hero {
+      background: var(--ink);
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      min-height: 420px;
+    }
+    .hero-content {
+      padding: 64px 48px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .hero-dept {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--green-light);
+      margin-bottom: 20px;
+    }
+    .hero-name {
+      font-family: var(--serif);
+      font-size: 68px;
+      font-weight: 300;
+      line-height: 1.0;
+      color: #f0ece4;
+      margin-bottom: 24px;
+    }
+    .hero-rule {
+      width: 44px;
+      height: 2px;
+      background: var(--green);
+      margin-bottom: 24px;
+    }
+    .hero-tagline {
+      font-family: var(--serif);
+      font-size: 17px;
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.7;
+      color: var(--steel-light);
+      max-width: 440px;
+      margin-bottom: 36px;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--green);
+      color: #e8f3f0;
+      padding: 12px 26px;
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: #4d8572; }
+    .btn-secondary {
+      display: inline-block;
+      background: transparent;
+      color: var(--steel-light);
+      border: 1px solid #3a5070;
+      padding: 12px 26px;
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--steel-light); color: #c8d8e8; }
+
+    .hero-photo {
+      background: var(--ink-mid);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      filter: grayscale(15%) contrast(1.03);
+      opacity: 0.92;
+    }
+
+    /* ── Bio strip ──────────────────────────────────────── */
+    .bio-strip {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 56px 48px;
+    }
+    .bio-inner {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 56px;
+      max-width: 960px;
+    }
+    .bio-sidebar {
+      padding-top: 4px;
+    }
+    .bio-label {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 14px;
+    }
+    .bio-title {
+      font-family: var(--serif);
+      font-size: 19px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+    .bio-inst {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--steel);
+      margin-bottom: 22px;
+    }
+    .bio-tags {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      align-items: flex-start;
+    }
+    .bio-tag {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--green);
+      background: var(--green-pale);
+      padding: 4px 11px;
+      border-radius: 2px;
+    }
+    .bio-body {
+      font-family: var(--serif);
+      font-size: 16.5px;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--text-mid);
+    }
+    .bio-body p { margin-bottom: 1.1em; }
+    .bio-body p:last-child { margin-bottom: 0; }
+    .bio-body a {
+      color: var(--green);
+      border-bottom: 1px solid var(--green-light);
+      transition: border-color 0.2s;
+    }
+    .bio-body a:hover { border-color: var(--green); }
+    .bio-links {
+      display: flex;
+      gap: 20px;
+      margin-top: 22px;
+      flex-wrap: wrap;
+    }
+    .bio-link {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      color: var(--steel);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .bio-link:hover { color: var(--green); border-color: var(--green-light); }
+
+    /* ── Main body ──────────────────────────────────────── */
+    .site-body {
+      background: var(--cream);
+      padding: 56px 48px 72px;
+    }
+
+    .section-eyebrow {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 8px;
+    }
+    .section-heading {
+      font-family: var(--serif);
+      font-size: 30px;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 36px;
+      line-height: 1.25;
+    }
+
+    /* ── Publication cards ──────────────────────────────── */
+    .pub-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-bottom: 16px;
+    }
+    .pub-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-top: 2px solid var(--green);
+      border-radius: 2px;
+      padding: 22px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.2s;
+    }
+    .pub-card:hover {
+      box-shadow: 0 4px 16px rgba(28,43,58,0.08);
+    }
+    .pub-journal {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--steel);
+      margin-bottom: 11px;
+    }
+    .pub-title {
+      font-family: var(--serif);
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.55;
+      margin-bottom: 12px;
+      flex: 1;
+    }
+    .pub-authors {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    .pub-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .pub-badge {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 400;
+      padding: 3px 9px;
+      border-radius: 2px;
+    }
+    .badge-forthcoming {
+      background: var(--green-pale);
+      color: var(--green);
+    }
+    .badge-available {
+      background: #e6eff8;
+      color: #2a5080;
+    }
+    .pub-read {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: var(--steel);
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+    .pub-read:hover { color: var(--green); }
+
+    .pub-all-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--steel);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+      margin-top: 6px;
+    }
+    .pub-all-link:hover { color: var(--green); border-color: var(--green-light); }
+
+    /* ── Divider ────────────────────────────────────────── */
+    .section-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 52px 0;
+    }
+
+    /* ── Research areas ─────────────────────────────────── */
+    .areas-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .area-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      padding: 20px 18px;
+    }
+    .area-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--green-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+    }
+    .area-icon svg {
+      width: 15px;
+      height: 15px;
+      stroke: var(--green);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .area-title {
+      font-family: var(--serif);
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .area-desc {
+      font-family: var(--sans);
+      font-size: 12px;
+      line-height: 1.65;
+      color: var(--text-muted);
+    }
+
+    /* ── Footer ─────────────────────────────────────────── */
+    .site-footer {
+      background: var(--ink);
+      padding: 40px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .footer-name {
+      font-family: var(--serif);
+      font-size: 16px;
+      font-weight: 400;
+      color: #c8d4de;
+    }
+    .footer-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .footer-links a {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: #6a8090;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--green-light); }
+    .footer-copy {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: #4a6070;
+    }
+
+    /* ── Palette accent strip ───────────────────────────── */
+    .palette-strip {
+      height: 3px;
+      display: flex;
+    }
+    .ps1 { flex: 4; background: var(--ink); }
+    .ps2 { flex: 2; background: var(--green); }
+    .ps3 { flex: 2; background: var(--steel); }
+    .ps4 { flex: 1; background: var(--green-light); }
+
+    /* ── Funding section ────────────────────────────────── */
+    .funding-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .funding-stats {
+      display: flex;
+      gap: 36px;
+      margin-bottom: 32px;
+    }
+    .funding-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .funding-stat-value {
+      font-family: var(--serif);
+      font-size: 32px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1;
+    }
+    .funding-stat-label {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.02em;
+    }
+    .funding-stat-divider {
+      width: 1px;
+      background: var(--border);
+      align-self: stretch;
+    }
+    .grant-list {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+    .grant-row {
+      display: grid;
+      grid-template-columns: 56px 1fr auto;
+      gap: 0;
+      align-items: start;
+      border-bottom: 1px solid var(--border);
+      padding: 18px 20px;
+      transition: background 0.15s;
+    }
+    .grant-row:last-child { border-bottom: none; }
+    .grant-row:hover { background: #fafaf8; }
+    .grant-year {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: var(--text-muted);
+      padding-top: 3px;
+    }
+    .grant-body { padding-right: 24px; }
+    .grant-title {
+      font-family: var(--serif);
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.45;
+      margin-bottom: 5px;
+    }
+    .grant-funder {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: var(--steel);
+    }
+    .grant-partner {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 10px;
+      color: var(--green);
+      background: var(--green-pale);
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-left: 8px;
+    }
+    .grant-right {
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+    }
+    .grant-amount {
+      font-family: var(--serif);
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+    .grant-status {
+      font-family: var(--sans);
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 2px;
+    }
+    .grant-status-active {
+      background: var(--green-pale);
+      color: var(--green);
+    }
+    .grant-status-pending {
+      background: #fef7e6;
+      color: #8a6010;
+    }
+    .partners-strip {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+    .partners-label {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      white-space: nowrap;
+      margin-right: 4px;
+    }
+    .partner-pill {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: var(--steel);
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 5px 12px;
+      border-radius: 2px;
+    }
+
+    /* ── Responsive ─────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-photo { min-height: 260px; }
+      .bio-inner { grid-template-columns: 1fr; gap: 28px; }
+      .grant-row { grid-template-columns: 1fr auto; }
+      .grant-year { display: none; }
+      .funding-stats { gap: 20px; }
+      .pub-grid { grid-template-columns: 1fr 1fr; }
+      .areas-grid { grid-template-columns: 1fr 1fr; }
+      .site-nav { padding: 0 24px; }
+      .hero-content, .bio-strip, .site-body, .site-footer { padding-left: 24px; padding-right: 24px; }
+      .hero-name { font-size: 52px; }
+    }
+    @media (max-width: 600px) {
+      .pub-grid { grid-template-columns: 1fr; }
+      .areas-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .hero-name { font-size: 42px; }
+      .site-footer { flex-direction: column; align-items: flex-start; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="/" class="nav-name">Lindsay M. Tedds</a>
+    <ul class="nav-links">
+      <li><a href="/research">Research</a></li>
+      <li><a href="/publications">Publications</a></li>
+      <li><a href="/media">Media</a></li>
+      <li><a href="/teaching">Teaching</a></li>
+      <li><a href="/cv">CV</a></li>
+      <li><a href="/disclosure">Disclosure</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" aria-label="Introduction">
+    <div class="hero-content">
+      <p class="hero-dept">Professor of Economics &middot; University of Calgary</p>
+      <h1 class="hero-name">Lindsay<br>M. Tedds</h1>
+      <div class="hero-rule" aria-hidden="true"></div>
+      <p class="hero-tagline">Public finance economist studying how tax and fiscal policy shapes equity, access, and well-being in Canada.</p>
+      <div class="hero-actions">
+        <a href="/research" class="btn-primary">View Research</a>
+        <a href="/cv" class="btn-secondary">Download CV</a>
+      </div>
+    </div>
+    <div class="hero-photo" aria-hidden="true">
+      <img src="unnamed.jpg" alt="Professor Lindsay M. Tedds">
+    </div>
+  </section>
+
+  <!-- Bio strip -->
+  <section class="bio-strip" aria-label="About">
+    <div class="bio-inner">
+      <div class="bio-sidebar">
+        <p class="bio-label">About</p>
+        <p class="bio-title">Professor, Department of Economics</p>
+        <p class="bio-inst">University of Calgary</p>
+        <div class="bio-tags">
+          <span class="bio-tag">Public Finance</span>
+          <span class="bio-tag">Tax Policy</span>
+          <span class="bio-tag">Social Policy</span>
+          <span class="bio-tag">Fiscal Equity</span>
+        </div>
+      </div>
+      <div>
+        <div class="bio-body">
+          <p>My research sits at the intersection of public finance, tax policy, and social policy, with a sustained focus on how fiscal and administrative design shapes equity, access, and well-being in Canada. I am committed to producing work that makes both an academic contribution and a tangible impact on Canadian policymaking — rigorous enough to advance scholarly debate, and accessible enough to inform the people who design, deliver, and are affected by public policy.</p>
+          <p>I pursue this through peer-reviewed journals, technical reports and policy papers for decision makers, and strategic research partnerships with governments and community organizations. I also develop open digital research infrastructure, including <a href="https://inclusiecon.ca" target="_blank" rel="noopener">INCLUSIECON</a>, a public-facing research hub making evidence on inclusive economic policy accessible beyond the academy. I am a regular non-partisan public commentator in print, television, radio, and before parliamentary and legislative committees.</p>
+        </div>
+        <div class="bio-links">
+          <a href="https://inclusiecon.ca" target="_blank" rel="noopener" class="bio-link">INCLUSIECON ↗</a>
+          <a href="https://scholar.google.com/citations?user=xWWVMXAAAAAJ&hl=en" target="_blank" rel="noopener" class="bio-link">Google Scholar ↗</a>
+          <a href="https://profiles.ucalgary.ca/lindsay-tedds" target="_blank" rel="noopener" class="bio-link">UCalgary Profile ↗</a>
+          <a href="https://www.linkedin.com/in/lindsay-tedds-b68b4311/" target="_blank" rel="noopener" class="bio-link">LinkedIn ↗</a>
+          <a href="https://bsky.app/profile/lindsaytedds.bsky.social" target="_blank" rel="noopener" class="bio-link">Bluesky ↗</a>
+          <a href="mailto:lindsay.tedds1@ucalgary.ca" class="bio-link">lindsay.tedds1@ucalgary.ca</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main body -->
+  <main class="site-body">
+
+    <!-- Recent publications -->
+    <section aria-label="Recent publications">
+      <p class="section-eyebrow">Current Work</p>
+      <h2 class="section-heading">Recent &amp; Forthcoming Publications</h2>
+
+      <div class="pub-grid">
+
+        <article class="pub-card">
+          <p class="pub-journal">Canadian Tax Journal</p>
+          <h3 class="pub-title">Tax Filing as State Administrative Infrastructure: Governance Gaps in Canada's Tax-based Benefit System</h3>
+          <p class="pub-authors">Petit, Tedds &amp; Robson</p>
+          <div class="pub-footer">
+            <span class="pub-badge badge-forthcoming">Forthcoming 2026</span>
+          </div>
+        </article>
+
+        <article class="pub-card">
+          <p class="pub-journal">Canadian Tax Journal</p>
+          <h3 class="pub-title">Beyond Cost and Yield: An MVPF-TAdmin Framework for Evaluating Tax-Administration Reforms through Public Value, Equity, and Welfare</h3>
+          <p class="pub-authors">Arshad, Petit &amp; Tedds</p>
+          <div class="pub-footer">
+            <span class="pub-badge badge-forthcoming">Forthcoming 2026</span>
+          </div>
+        </article>
+
+        <article class="pub-card">
+          <p class="pub-journal">Canadian Public Administration</p>
+          <h3 class="pub-title">Income and Social Supports: An Inclusive Systems-based Approach to Cash Transfer Program Design</h3>
+          <p class="pub-authors">Petit &amp; Tedds · 2026</p>
+          <div class="pub-footer">
+            <span class="pub-badge badge-available">Available</span>
+            <a href="https://doi.org/10.1111/capa.70050" target="_blank" rel="noopener" class="pub-read">Read ↗</a>
+          </div>
+        </article>
+
+        <article class="pub-card">
+          <p class="pub-journal">Poverty and Public Policy</p>
+          <h3 class="pub-title">The Effect of Increased Earnings Exemptions and Asset Thresholds on Income Assistance Flows in British Columbia</h3>
+          <p class="pub-authors">Petit &amp; Tedds · 2024 · 16(4)</p>
+          <div class="pub-footer">
+            <span class="pub-badge badge-available">Available</span>
+          </div>
+        </article>
+
+        <article class="pub-card">
+          <p class="pub-journal">Osgoode Hall Law Journal</p>
+          <h3 class="pub-title">Canada Disability Benefit: Battling Ableism in Design and Implementation</h3>
+          <p class="pub-authors">Robson &amp; Tedds · 2024 · 61(2)</p>
+          <div class="pub-footer">
+            <span class="pub-badge badge-available">Available</span>
+            <a href="https://doi.org/10.60082/2817-5069.4014" target="_blank" rel="noopener" class="pub-read">Read ↗</a>
+          </div>
+        </article>
+
+        <article class="pub-card">
+          <p class="pub-journal">Canadian Public Policy</p>
+          <h3 class="pub-title">A Basic Income for Nunavut: Addressing Poverty in Canada's North</h3>
+          <p class="pub-authors">Petit &amp; Tedds · 2024 · 50(3)</p>
+          <div class="pub-footer">
+            <span class="pub-badge badge-available">Available</span>
+            <a href="https://doi.org/10.3138/cpp.2023-045" target="_blank" rel="noopener" class="pub-read">Read ↗</a>
+          </div>
+        </article>
+
+      </div>
+
+      <a href="/publications" class="pub-all-link">All publications &rarr;</a>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- Funding & partnerships -->
+    <section aria-label="Funding and partnerships">
+      <div class="funding-header">
+        <div>
+          <p class="section-eyebrow">Funding &amp; Partnerships</p>
+          <h2 class="section-heading" style="margin-bottom:0;">Current &amp; Recent Research Funding</h2>
+        </div>
+      </div>
+
+      <div class="funding-stats">
+        <div class="funding-stat">
+          <span class="funding-stat-value">$250K+</span>
+          <span class="funding-stat-label">Active funding (2025–26)</span>
+        </div>
+        <div class="funding-stat-divider"></div>
+        <div class="funding-stat">
+          <span class="funding-stat-value">5</span>
+          <span class="funding-stat-label">Active grants</span>
+        </div>
+        <div class="funding-stat-divider"></div>
+        <div class="funding-stat">
+          <span class="funding-stat-value">$3M+</span>
+          <span class="funding-stat-label">Career research funding</span>
+        </div>
+      </div>
+
+      <div class="partners-strip">
+        <span class="partners-label">Key current &amp; recent partners</span>
+        <span class="partner-pill">SSHRC</span>
+        <span class="partner-pill">Mitacs</span>
+        <span class="partner-pill">Alberta Real Estate Foundation</span>
+        <span class="partner-pill">City of Calgary</span>
+        <span class="partner-pill">Maytree Foundation</span>
+        <span class="partner-pill">Vibrant Communities Calgary</span>
+      </div>
+
+      <div class="grant-list">
+
+        <div class="grant-row">
+          <span class="grant-year">2026</span>
+          <div class="grant-body">
+            <p class="grant-title">Beyond Costs: A Comparative Welfare Analysis of Canadian Government Programs Using the Marginal Value of Public Funds</p>
+            <p class="grant-funder">Mitacs Accelerate Grant<span class="grant-partner">Maytree Foundation</span></p>
+          </div>
+          <div class="grant-right">
+            <span class="grant-amount">$60,000</span>
+            <span class="grant-status grant-status-active">Active</span>
+          </div>
+        </div>
+
+        <div class="grant-row">
+          <span class="grant-year">2026</span>
+          <div class="grant-body">
+            <p class="grant-title">Beyond Costs: A Comparative Welfare Analysis of Canadian Government Programs Using the Marginal Value of Public Funds</p>
+            <p class="grant-funder">SSHRC Insight Development Grant</p>
+          </div>
+          <div class="grant-right">
+            <span class="grant-amount">$99,864</span>
+            <span class="grant-status grant-status-pending">Under Review</span>
+          </div>
+        </div>
+
+        <div class="grant-row">
+          <span class="grant-year">2026</span>
+          <div class="grant-body">
+            <p class="grant-title">Fair and Accountable Canadian Taxation (FACT): The Fair Tax Initiative</p>
+            <p class="grant-funder">SSHRC Partnership Development Grant</p>
+          </div>
+          <div class="grant-right">
+            <span class="grant-amount">$199,923</span>
+            <span class="grant-status grant-status-pending">Under Review</span>
+          </div>
+        </div>
+
+        <div class="grant-row">
+          <span class="grant-year">2025</span>
+          <div class="grant-body">
+            <p class="grant-title">Property Tax Regressivity in Alberta: Policy Solutions to Improve Housing Affordability</p>
+            <p class="grant-funder">Alberta Real Estate Foundation Investment Grant</p>
+          </div>
+          <div class="grant-right">
+            <span class="grant-amount">$91,500</span>
+            <span class="grant-status grant-status-active">Active</span>
+          </div>
+        </div>
+
+        <div class="grant-row">
+          <span class="grant-year">2025</span>
+          <div class="grant-body">
+            <p class="grant-title">Mapping the System of Social Supports in Alberta</p>
+            <p class="grant-funder">SSHRC Partnership Engage Grant</p>
+          </div>
+          <div class="grant-right">
+            <span class="grant-amount">$24,995</span>
+            <span class="grant-status grant-status-active">Active</span>
+          </div>
+        </div>
+
+        <div class="grant-row">
+          <span class="grant-year">2024</span>
+          <div class="grant-body">
+            <p class="grant-title">Property Tax Equity Assessment (ProperTEA)</p>
+            <p class="grant-funder">SSHRC Insight Development Grant</p>
+          </div>
+          <div class="grant-right">
+            <span class="grant-amount">$74,882</span>
+            <span class="grant-status grant-status-active">Active</span>
+          </div>
+        </div>
+
+        <div class="grant-row">
+          <span class="grant-year">2022</span>
+          <div class="grant-body">
+            <p class="grant-title">Scoping Calgary's Short-Term Rental Economy</p>
+            <p class="grant-funder">City of Calgary Council Innovation Fund</p>
+          </div>
+          <div class="grant-right">
+            <span class="grant-amount">$324,070</span>
+            <span class="grant-status" style="background:#eeecf0;color:#5a5070;">Complete</span>
+          </div>
+        </div>
+
+      </div>
+
+      <a href="/cv#grants" class="pub-all-link">Full grants record &rarr;</a>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- Research areas -->
+    <section aria-label="Research areas">
+      <p class="section-eyebrow">Research Areas</p>
+      <h2 class="section-heading">Current Areas of Focus</h2>
+
+      <div class="areas-grid">
+
+        <div class="area-card">
+          <div class="area-icon">
+            <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          </div>
+          <h3 class="area-title">Welfare Analysis, Equity &amp; MVPF</h3>
+          <p class="area-desc">Applying the marginal value of public funds framework to evaluate Canadian tax and social programs across efficiency, equity, and public value dimensions — incorporating intersectionality and distributional analysis to centre who gains and who loses from policy design.</p>
+        </div>
+
+        <div class="area-card">
+          <div class="area-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <h3 class="area-title">Social Policy &amp; Cash Transfers</h3>
+          <p class="area-desc">Basic income design, income assistance reform, and Canada's social support architecture.</p>
+        </div>
+
+        <div class="area-card">
+          <div class="area-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h3 class="area-title">Property Tax &amp; Housing</h3>
+          <p class="area-desc">Property tax equity, short-term rental regulation, and housing market impacts in Canadian cities.</p>
+        </div>
+
+        <div class="area-card">
+          <div class="area-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3 class="area-title">Public Finance &amp; Tax Policy</h3>
+          <p class="area-desc">Fiscal design, tax administration, revenue analysis, microsimulation modelling, and the underground economy.</p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <span class="footer-name">Lindsay M. Tedds</span>
+    <ul class="footer-links">
+      <li><a href="/research">Research</a></li>
+      <li><a href="/publications">Publications</a></li>
+      <li><a href="/media">Media</a></li>
+      <li><a href="/cv">CV</a></li>
+      <li><a href="/disclosure">Disclosure</a></li>
+      <li><a href="mailto:lindsay.tedds1@ucalgary.ca">Contact</a></li>
+    </ul>
+    <p class="footer-copy">&copy; 2026 Lindsay M. Tedds</p>
+  </footer>
+
+  <div class="palette-strip" aria-hidden="true">
+    <div class="ps1"></div>
+    <div class="ps2"></div>
+    <div class="ps3"></div>
+    <div class="ps4"></div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media | Lindsay M. Tedds</title>
+  <meta name="description" content="Media appearances, research coverage, and public commentary by Lindsay M. Tedds, Professor of Economics at the University of Calgary.">
+  <link rel="canonical" href="https://lindsaytedds.ca/media">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Media | Lindsay M. Tedds">
+  <meta property="og:url" content="https://lindsaytedds.ca/media">
+  <meta property="og:site_name" content="Lindsay M. Tedds">
+  <meta name="robots" content="index, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink:#1c2b3a; --ink-mid:#2d4060; --green:#3d6b5e; --green-light:#6a9e8f; --green-pale:#e8f3f0;
+      --steel:#4a6080; --steel-light:#a8b8c8; --cream:#f5f3ee; --border:#dcd7cc; --white:#ffffff;
+      --text:#1c2b3a; --text-muted:#6a7a8a;
+      --serif:'Cormorant Garamond',Georgia,serif; --sans:'DM Sans',system-ui,sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--sans);background:var(--cream);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+
+    /* Nav */
+    .site-nav{position:sticky;top:0;z-index:100;background:var(--cream);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:60px}
+    .nav-name{font-family:var(--serif);font-size:18px;font-weight:500;color:var(--ink)}
+    .nav-links{display:flex;gap:32px;list-style:none}
+    .nav-links a{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--steel);transition:color .2s}
+    .nav-links a:hover,.nav-links a.active{color:var(--green)}
+
+    /* Page header */
+    .page-header{background:var(--ink);padding:56px 48px 52px}
+    .page-header-eyebrow{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--green-light);margin-bottom:16px}
+    .page-header h1{font-family:var(--serif);font-size:48px;font-weight:300;color:#f0ece4;line-height:1.1;margin-bottom:20px}
+    .page-header-rule{width:44px;height:2px;background:var(--green);margin-bottom:20px}
+    .page-header-desc{font-family:var(--serif);font-size:17px;font-weight:300;font-style:italic;color:var(--steel-light);max-width:640px;line-height:1.75}
+
+    /* Intro blurb strip */
+    .intro-strip{background:var(--white);border-bottom:1px solid var(--border);padding:28px 48px}
+    .intro-strip p{font-family:var(--serif);font-size:16px;color:var(--text);line-height:1.8;max-width:800px}
+    .intro-strip p em{color:var(--steel)}
+
+    /* Filter bar */
+    .filter-bar{background:var(--cream);border-bottom:1px solid var(--border);padding:14px 48px;position:sticky;top:60px;z-index:90}
+    .filter-group{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+    .filter-label{font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-right:4px}
+    .filter-btn{font-family:var(--sans);font-size:12px;color:var(--steel);background:transparent;border:1px solid var(--border);padding:5px 14px;border-radius:2px;cursor:pointer;transition:all .15s}
+    .filter-btn:hover{border-color:var(--steel);color:var(--ink)}
+    .filter-btn.active{background:var(--ink);color:var(--white);border-color:var(--ink)}
+
+    /* Main */
+    .site-main{padding:52px 48px 80px}
+
+    /* Section */
+    .media-section{margin-bottom:64px}
+    .media-section[data-hidden="true"]{display:none}
+    .media-section-header{display:flex;align-items:baseline;gap:12px;margin-bottom:28px;padding-bottom:12px;border-bottom:2px solid var(--green);flex-wrap:wrap}
+    .media-section-title{font-family:var(--serif);font-size:22px;font-weight:400;color:var(--ink)}
+    .media-section-note{font-family:var(--serif);font-size:14px;font-style:italic;color:var(--text-muted);margin-left:auto}
+
+    /* Card grid */
+    .media-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .media-card{background:var(--white);border-top:2px solid var(--green);box-shadow:0 1px 4px rgba(28,43,58,.06);transition:box-shadow .2s,transform .2s;display:flex;flex-direction:column}
+    .media-card:hover{box-shadow:0 4px 16px rgba(28,43,58,.12);transform:translateY(-2px)}
+    .media-card-thumb{position:relative;padding-bottom:56.25%;background:var(--ink-mid);overflow:hidden;display:block}
+    .media-card-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .media-card-thumb-placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--ink) 0%,var(--ink-mid) 100%)}
+    .media-card-thumb-placeholder span{font-family:var(--serif);font-size:18px;color:rgba(255,255,255,.25);text-align:center;padding:12px;line-height:1.4}
+    .play-icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s;background:rgba(28,43,58,.4)}
+    .media-card:hover .play-icon{opacity:1}
+    .play-icon svg{width:44px;height:44px;fill:white;filter:drop-shadow(0 2px 8px rgba(0,0,0,.5))}
+    .media-card-body{padding:18px 20px 20px;flex:1;display:flex;flex-direction:column;gap:8px}
+    .media-card-badge{display:inline-block;font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:2px 7px;border-radius:1px;width:fit-content}
+    .badge-video{color:var(--green);border:1px solid var(--green-light)}
+    .badge-podcast{color:var(--steel);border:1px solid var(--steel-light)}
+    .badge-panel{color:#5a4a20;border:1px solid #b89848}
+    .media-card-title{font-family:var(--serif);font-size:15px;font-weight:400;color:var(--ink);line-height:1.45;flex:1}
+    .media-card-outlet{font-size:11px;color:var(--steel)}
+    .media-card-year{font-size:11px;color:var(--text-muted)}
+    .media-card-link{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:var(--steel);border-bottom:1px solid var(--border);padding-bottom:1px;transition:color .2s,border-color .2s;margin-top:4px;width:fit-content}
+    .media-card-link:hover{color:var(--green);border-color:var(--green-light)}
+
+    /* List rows */
+    .media-list{display:flex;flex-direction:column}
+    .media-row{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:start;padding:14px 0;border-bottom:1px solid var(--border)}
+    .media-row:last-child{border-bottom:none}
+    .media-row-title{font-family:var(--serif);font-size:16px;font-weight:400;color:var(--ink);line-height:1.45;margin-bottom:4px}
+    .media-row-title a{border-bottom:1px solid transparent;transition:border-color .2s,color .2s}
+    .media-row-title a:hover{border-color:var(--green);color:var(--green)}
+    .media-row-title span{color:var(--text)} /* unlinked titles */
+    .media-row-meta{font-size:12px;color:var(--text-muted)}
+    .media-row-meta strong{color:var(--steel);font-weight:400}
+    .media-row-right{display:flex;align-items:flex-start;padding-top:3px}
+    .row-link{font-size:11px;color:var(--steel);border-bottom:1px solid var(--border);padding-bottom:1px;transition:color .2s,border-color .2s;white-space:nowrap}
+    .row-link:hover{color:var(--green);border-color:var(--green-light)}
+
+    /* Year group headings in op-ed list */
+    .year-group{padding:20px 0 4px;border-bottom:none}
+    .year-group-label{font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--green);display:block;margin-bottom:0}
+
+    /* Paywall note */
+    .paywall-note{font-size:11px;color:var(--text-muted);padding:18px 0 0;font-style:italic}
+
+    /* Footer */
+    .site-footer{background:var(--ink);padding:40px 48px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .footer-name{font-family:var(--serif);font-size:16px;color:#c8d4de}
+    .footer-links{display:flex;gap:28px;list-style:none}
+    .footer-links a{font-size:11px;letter-spacing:0.07em;text-transform:uppercase;color:#6a8090;transition:color .2s}
+    .footer-links a:hover{color:var(--green-light)}
+    .footer-copy{font-size:11px;color:#4a6070}
+    .palette-strip{height:3px;display:flex}
+    .ps1{flex:4;background:var(--ink)}.ps2{flex:2;background:var(--green)}.ps3{flex:2;background:var(--steel)}.ps4{flex:1;background:var(--green-light)}
+
+    @media(max-width:1100px){.media-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:860px){
+      .site-nav,.filter-bar,.page-header,.intro-strip,.site-main,.site-footer{padding-left:24px;padding-right:24px}
+      .nav-links{display:none}
+      .page-header h1{font-size:36px}
+      .media-grid{grid-template-columns:1fr}
+      .media-row{grid-template-columns:1fr}
+      .media-row-right{padding-top:0}
+      .media-section-note{margin-left:0}
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <a href="/" class="nav-name">Lindsay M. Tedds</a>
+    <ul class="nav-links">
+      <li><a href="/research">Research</a></li>
+      <li><a href="/publications">Publications</a></li>
+      <li><a href="/media" class="active">Media</a></li>
+      <li><a href="/teaching">Teaching</a></li>
+      <li><a href="/cv">CV</a></li>
+      <li><a href="/disclosure">Disclosure</a></li>
+    </ul>
+  </nav>
+
+  <header class="page-header">
+    <p class="page-header-eyebrow">Lindsay M. Tedds</p>
+    <h1>Media & Commentary</h1>
+    <div class="page-header-rule"></div>
+    <p class="page-header-desc">Television, radio, podcasts, print, and public commentary on Canadian economic and social policy.</p>
+  </header>
+
+  <div class="intro-strip">
+    <p>I am a non-partisan public commentator on Canadian economic and social policy, appearing regularly on television, radio, and podcasts, in print, and before parliamentary and legislative committees. Prior to 2023, this typically amounted to <em>50+ appearances in a standard year and 100+ in an election year</em>. Since 2023, I have reduced my own media presence while managing chronic illness, and have redirected that energy toward something I find equally meaningful: <em>supporting historically marginalized scholars and advocates in building their own profiles as go-to expert sources</em>. Below is a selection of my appearances, media coverage of my research, and my written commentary.</p>
+  </div>
+
+  <div class="filter-bar">
+    <div class="filter-group">
+      <span class="filter-label">Show</span>
+      <button class="filter-btn active" onclick="filterMedia('all',this)">All</button>
+      <button class="filter-btn" onclick="filterMedia('video',this)">Video &amp; Television</button>
+      <button class="filter-btn" onclick="filterMedia('podcast',this)">Podcast &amp; Audio</button>
+      <button class="filter-btn" onclick="filterMedia('news',this)">Research in the News</button>
+      <button class="filter-btn" onclick="filterMedia('opeds',this)">Op-eds &amp; Commentary</button>
+    </div>
+  </div>
+
+  <main class="site-main">
+
+    <!-- ── VIDEO & TELEVISION ─────────────────────────── -->
+    <section class="media-section" data-type="video">
+      <div class="media-section-header">
+        <h2 class="media-section-title">Video &amp; Television</h2>
+        <span class="media-section-note">A selection of television and video appearances</span>
+      </div>
+      <div class="media-grid">
+
+        <div class="media-card">
+          <a href="https://www.youtube.com/watch?v=qyxYZ0qmqWM" target="_blank" rel="noopener" class="media-card-thumb">
+            <img src="https://i.ytimg.com/vi/qyxYZ0qmqWM/hqdefault.jpg" alt="" loading="lazy">
+            <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </a>
+          <div class="media-card-body">
+            <span class="media-card-badge badge-panel">Panel · Video</span>
+            <p class="media-card-title">A Well-being Economy for Alberta: Examples in practice</p>
+            <p class="media-card-outlet">Parkland Institute</p>
+            <p class="media-card-year">November 2025</p>
+            <a href="https://www.youtube.com/watch?v=qyxYZ0qmqWM" target="_blank" rel="noopener" class="media-card-link">Watch ↗</a>
+          </div>
+        </div>
+
+        <div class="media-card">
+          <a href="https://www.youtube.com/watch?v=_2WcgNKHmk0" target="_blank" rel="noopener" class="media-card-thumb">
+            <img src="https://i.ytimg.com/vi/_2WcgNKHmk0/hqdefault.jpg" alt="" loading="lazy">
+            <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </a>
+          <div class="media-card-body">
+            <span class="media-card-badge badge-video">Television · Video</span>
+            <p class="media-card-title">Fact-checking the leaders' points during the #GlobeDebate</p>
+            <p class="media-card-outlet">The Globe and Mail</p>
+            <p class="media-card-year">2021</p>
+            <a href="https://www.youtube.com/watch?v=_2WcgNKHmk0" target="_blank" rel="noopener" class="media-card-link">Watch ↗</a>
+          </div>
+        </div>
+
+        <div class="media-card">
+          <a href="https://globalnews.ca/video/7495432/the-surprising-economic-impact-of-a-national-child-care-program" target="_blank" rel="noopener" class="media-card-thumb">
+            <div class="media-card-thumb-placeholder"><span>Global News</span></div>
+            <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </a>
+          <div class="media-card-body">
+            <span class="media-card-badge badge-video">Television · Video</span>
+            <p class="media-card-title">The Surprising Economic Impact of a National Child Care Program</p>
+            <p class="media-card-outlet">Global News</p>
+            <p class="media-card-year">2021</p>
+            <a href="https://globalnews.ca/video/7495432/the-surprising-economic-impact-of-a-national-child-care-program" target="_blank" rel="noopener" class="media-card-link">Watch ↗</a>
+          </div>
+        </div>
+
+        <div class="media-card">
+          <a href="https://www.youtube.com/watch?v=le2W9eg8-I8" target="_blank" rel="noopener" class="media-card-thumb">
+            <img src="https://i.ytimg.com/vi/le2W9eg8-I8/hqdefault.jpg" alt="" loading="lazy">
+            <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </a>
+          <div class="media-card-body">
+            <span class="media-card-badge badge-panel">Panel · Video</span>
+            <p class="media-card-title">Should the Government Fund a Pan-Canadian Network of Scholars Focused on Gender Based Analysis?</p>
+            <p class="media-card-outlet">Senator Ratna Omidvar</p>
+            <a href="https://www.youtube.com/watch?v=le2W9eg8-I8" target="_blank" rel="noopener" class="media-card-link">Watch ↗</a>
+          </div>
+        </div>
+
+        <div class="media-card">
+          <a href="https://www.youtube.com/watch?v=8BJu3gyzAg8" target="_blank" rel="noopener" class="media-card-thumb">
+            <img src="https://i.ytimg.com/vi/8BJu3gyzAg8/hqdefault.jpg" alt="" loading="lazy">
+            <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </a>
+          <div class="media-card-body">
+            <span class="media-card-badge badge-video">Video</span>
+            <p class="media-card-title">Why Carbon Pricing Makes Sense</p>
+            <p class="media-card-outlet">Canada's Ecofiscal Commission</p>
+            <p class="media-card-year">2018</p>
+            <a href="https://www.youtube.com/watch?v=8BJu3gyzAg8" target="_blank" rel="noopener" class="media-card-link">Watch ↗</a>
+          </div>
+        </div>
+
+        <div class="media-card">
+          <a href="https://www.youtube.com/watch?v=2-RIz6HxssI" target="_blank" rel="noopener" class="media-card-thumb">
+            <img src="https://i.ytimg.com/vi/2-RIz6HxssI/hqdefault.jpg" alt="" loading="lazy">
+            <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </a>
+          <div class="media-card-body">
+            <span class="media-card-badge badge-video">Television · Video</span>
+            <p class="media-card-title">The Second-Hand Economy</p>
+            <p class="media-card-outlet">TVO Today — The Agenda with Steve Paikin</p>
+            <p class="media-card-year">2016</p>
+            <a href="https://www.youtube.com/watch?v=2-RIz6HxssI" target="_blank" rel="noopener" class="media-card-link">Watch ↗</a>
+          </div>
+        </div>
+
+        <div class="media-card">
+          <a href="https://www.youtube.com/watch?v=hBWlfSky3Yo" target="_blank" rel="noopener" class="media-card-thumb">
+            <img src="https://i.ytimg.com/vi/hBWlfSky3Yo/hqdefault.jpg" alt="" loading="lazy">
+            <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </a>
+          <div class="media-card-body">
+            <span class="media-card-badge badge-panel">Lecture · Video</span>
+            <p class="media-card-title">Basic Income Guarantee Conference</p>
+            <p class="media-card-outlet">Northern Policy Institute</p>
+            <p class="media-card-year">2016</p>
+            <a href="https://www.youtube.com/watch?v=hBWlfSky3Yo" target="_blank" rel="noopener" class="media-card-link">Watch ↗</a>
+          </div>
+        </div>
+
+        <div class="media-card">
+          <a href="https://www.youtube.com/watch?v=P6TNpZYxvio" target="_blank" rel="noopener" class="media-card-thumb">
+            <img src="https://i.ytimg.com/vi/P6TNpZYxvio/hqdefault.jpg" alt="" loading="lazy">
+            <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </a>
+          <div class="media-card-body">
+            <span class="media-card-badge badge-video">Television · Video</span>
+            <p class="media-card-title">What a Liberal Government Could Mean for the Economy</p>
+            <p class="media-card-outlet">The Globe and Mail</p>
+            <p class="media-card-year">2015</p>
+            <a href="https://www.youtube.com/watch?v=P6TNpZYxvio" target="_blank" rel="noopener" class="media-card-link">Watch ↗</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── PODCAST & AUDIO ────────────────────────────── -->
+    <section class="media-section" data-type="podcast">
+      <div class="media-section-header">
+        <h2 class="media-section-title">Podcast &amp; Audio</h2>
+        <span class="media-section-note">A selection of podcast and radio appearances</span>
+      </div>
+      <div class="media-grid">
+
+        <div class="media-card">
+          <a href="https://mihe.mcmaster.ca/episode3/" target="_blank" rel="noopener" class="media-card-thumb">
+            <div class="media-card-thumb-placeholder"><span>McMaster Institute for Health Equity</span></div>
+            <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </a>
+          <div class="media-card-body">
+            <span class="media-card-badge badge-podcast">Podcast</span>
+            <p class="media-card-title">What Can We Learn from the BC Basic Income Panel With Lindsay Tedds</p>
+            <p class="media-card-outlet">McMaster Institute for Health Equity · Episode 3</p>
+            <a href="https://mihe.mcmaster.ca/episode3/" target="_blank" rel="noopener" class="media-card-link">Listen ↗</a>
+          </div>
+        </div>
+
+        <div class="media-card">
+          <a href="https://www.youtube.com/watch?v=U0FBGnzjq7U" target="_blank" rel="noopener" class="media-card-thumb">
+            <img src="https://i.ytimg.com/vi/U0FBGnzjq7U/hqdefault.jpg" alt="" loading="lazy">
+            <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </a>
+          <div class="media-card-body">
+            <span class="media-card-badge badge-podcast">Podcast</span>
+            <p class="media-card-title">Economic policy, inflation, and why a strong labour market still feels lousy — with Randall Bartlett</p>
+            <p class="media-card-outlet">The Herle Burly · Air Quotes Media</p>
+            <p class="media-card-year">June 2023</p>
+            <a href="https://www.youtube.com/watch?v=U0FBGnzjq7U" target="_blank" rel="noopener" class="media-card-link">Listen ↗</a>
+          </div>
+        </div>
+
+        <div class="media-card">
+          <a href="https://www.youtube.com/watch?v=UYhMDoRmymM" target="_blank" rel="noopener" class="media-card-thumb">
+            <img src="https://i.ytimg.com/vi/UYhMDoRmymM/hqdefault.jpg" alt="" loading="lazy">
+            <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </a>
+          <div class="media-card-body">
+            <span class="media-card-badge badge-podcast">Podcast</span>
+            <p class="media-card-title">Ideas, Thoughts, Experiments Alberta — Episode 4</p>
+            <p class="media-card-outlet">Bob Ascah's ITE Alberta</p>
+            <p class="media-card-year">2023</p>
+            <a href="https://www.youtube.com/watch?v=UYhMDoRmymM" target="_blank" rel="noopener" class="media-card-link">Listen ↗</a>
+          </div>
+        </div>
+
+        <div class="media-card">
+          <a href="https://www.youtube.com/watch?v=AXmREDX6KOA" target="_blank" rel="noopener" class="media-card-thumb">
+            <img src="https://i.ytimg.com/vi/AXmREDX6KOA/hqdefault.jpg" alt="" loading="lazy">
+            <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </a>
+          <div class="media-card-body">
+            <span class="media-card-badge badge-podcast">Podcast</span>
+            <p class="media-card-title">The Canadian Disability Benefit (Part 1)</p>
+            <p class="media-card-outlet">The Dale Smith Podcast</p>
+            <a href="https://www.youtube.com/watch?v=AXmREDX6KOA" target="_blank" rel="noopener" class="media-card-link">Listen ↗</a>
+          </div>
+        </div>
+
+        <div class="media-card">
+          <a href="https://www.youtube.com/watch?v=GtcqS-wFFP0" target="_blank" rel="noopener" class="media-card-thumb">
+            <img src="https://i.ytimg.com/vi/GtcqS-wFFP0/hqdefault.jpg" alt="" loading="lazy">
+            <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </a>
+          <div class="media-card-body">
+            <span class="media-card-badge badge-podcast">Podcast</span>
+            <p class="media-card-title">The Canadian Disability Benefit (Part 2)</p>
+            <p class="media-card-outlet">The Dale Smith Podcast</p>
+            <a href="https://www.youtube.com/watch?v=GtcqS-wFFP0" target="_blank" rel="noopener" class="media-card-link">Listen ↗</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── RESEARCH IN THE NEWS ───────────────────────── -->
+    <section class="media-section" data-type="news">
+      <div class="media-section-header">
+        <h2 class="media-section-title">Research in the News</h2>
+        <span class="media-section-note">A selection of media coverage of research and expert commentary</span>
+      </div>
+      <div class="media-list">
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><a href="https://www.cbc.ca/news/canada/calgary/analysis-alberta-taxes-deficit-budget-2026-9.7118227" target="_blank" rel="noopener">ANALYSIS: How good is Alberta's 'tax advantage' when it requires deficit borrowing?</a></p>
+            <p class="media-row-meta"><strong>CBC News</strong> · March 2026</p>
+          </div>
+          <div class="media-row-right"><a href="https://www.cbc.ca/news/canada/calgary/analysis-alberta-taxes-deficit-budget-2026-9.7118227" target="_blank" rel="noopener" class="row-link">Read ↗</a></div>
+        </div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><a href="https://www.sprawlcalgary.com/property-tax-neighbourhoods-budget" target="_blank" rel="noopener">One Calgary councillor's protest against 'special treatment' for wealthy neighbourhoods</a></p>
+            <p class="media-row-meta"><strong>The Sprawl</strong> · March 2026</p>
+          </div>
+          <div class="media-row-right"><a href="https://www.sprawlcalgary.com/property-tax-neighbourhoods-budget" target="_blank" rel="noopener" class="row-link">Read ↗</a></div>
+        </div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><a href="https://www.cbc.ca/news/canada/calgary/albertans-brace-for-finance-minister-to-present-2nd-consecutive-deficit-budget-9.7106223" target="_blank" rel="noopener">Albertans brace for finance minister to present 2nd consecutive deficit budget</a></p>
+            <p class="media-row-meta"><strong>CBC News</strong> · February 2026</p>
+          </div>
+          <div class="media-row-right"><a href="https://www.cbc.ca/news/canada/calgary/albertans-brace-for-finance-minister-to-present-2nd-consecutive-deficit-budget-9.7106223" target="_blank" rel="noopener" class="row-link">Read ↗</a></div>
+        </div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><a href="https://www.cbc.ca/news/business/capital-gains-tax-budget-2024-brain-drain-1.7176837" target="_blank" rel="noopener">Capital gains tax change draws ire from some Canadian entrepreneurs worried it will worsen brain drain</a></p>
+            <p class="media-row-meta"><strong>CBC News</strong> · April 2024</p>
+          </div>
+          <div class="media-row-right"><a href="https://www.cbc.ca/news/business/capital-gains-tax-budget-2024-brain-drain-1.7176837" target="_blank" rel="noopener" class="row-link">Read ↗</a></div>
+        </div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><a href="https://ucalgary.ca/news/survey-asks-calgarians-what-they-think-about-airbnb-their-community" target="_blank" rel="noopener">Survey asks Calgarians what they think about Airbnb in their community</a></p>
+            <p class="media-row-meta"><strong>University of Calgary News</strong> · December 2023</p>
+          </div>
+          <div class="media-row-right"><a href="https://ucalgary.ca/news/survey-asks-calgarians-what-they-think-about-airbnb-their-community" target="_blank" rel="noopener" class="row-link">Read ↗</a></div>
+        </div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><a href="https://thegauntlet.ca/2023/12/05/u-of-c-study-examines-short-term-rental-market-in-calgary/" target="_blank" rel="noopener">U of C study examines short-term rental market in Calgary</a></p>
+            <p class="media-row-meta"><strong>The Gauntlet</strong> · December 2023</p>
+          </div>
+          <div class="media-row-right"><a href="https://thegauntlet.ca/2023/12/05/u-of-c-study-examines-short-term-rental-market-in-calgary/" target="_blank" rel="noopener" class="row-link">Read ↗</a></div>
+        </div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><a href="https://www.cbc.ca/news/canada/calgary/ndp-ucp-tax-raise-fact-check-1.6838515" target="_blank" rel="noopener">Fact check: Did Rachel Notley raise taxes 97 times?</a></p>
+            <p class="media-row-meta"><strong>CBC News</strong> · May 2023</p>
+          </div>
+          <div class="media-row-right"><a href="https://www.cbc.ca/news/canada/calgary/ndp-ucp-tax-raise-fact-check-1.6838515" target="_blank" rel="noopener" class="row-link">Read ↗</a></div>
+        </div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><a href="https://www.cbc.ca/news/canada/calgary/alberta-provincial-election-begins-1.6826423" target="_blank" rel="noopener">Alberta election: expert commentary on UCP's new income tax bracket proposal</a></p>
+            <p class="media-row-meta"><strong>CBC News</strong> · May 2023</p>
+          </div>
+          <div class="media-row-right"><a href="https://www.cbc.ca/news/canada/calgary/alberta-provincial-election-begins-1.6826423" target="_blank" rel="noopener" class="row-link">Read ↗</a></div>
+        </div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><a href="https://www.theglobeandmail.com/canada/article-expert-flags-potential-for-dental-care-clawbacks-as-result-of-federal/" target="_blank" rel="noopener">Expert flags potential for dental-care clawbacks as result of federal program</a></p>
+            <p class="media-row-meta"><strong>The Globe and Mail</strong> · September 2022</p>
+          </div>
+          <div class="media-row-right"><a href="https://www.theglobeandmail.com/canada/article-expert-flags-potential-for-dental-care-clawbacks-as-result-of-federal/" target="_blank" rel="noopener" class="row-link">Read ↗</a></div>
+        </div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><a href="https://www.cbc.ca/news/canada/calgary/alberta-calgary-economist-ucp-pitched-flat-tax-1.4653250" target="_blank" rel="noopener">Only 'incredibly wealthy' Albertans would benefit from UCP flat tax, economist warns</a></p>
+            <p class="media-row-meta"><strong>CBC News</strong> · May 2018</p>
+          </div>
+          <div class="media-row-right"><a href="https://www.cbc.ca/news/canada/calgary/alberta-calgary-economist-ucp-pitched-flat-tax-1.4653250" target="_blank" rel="noopener" class="row-link">Read ↗</a></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── OP-EDS & COMMENTARY ────────────────────────── -->
+    <section class="media-section" data-type="opeds">
+      <div class="media-section-header">
+        <h2 class="media-section-title">Op-eds &amp; Commentary</h2>
+        <span class="media-section-note">The Globe and Mail, Maclean's, Policy Options, and others</span>
+      </div>
+      <div class="media-list">
+
+        <!-- 2024 -->
+        <div class="media-row year-group"><span class="year-group-label">2024</span></div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><a href="https://policyoptions.irpp.org/2024/08/bc-united-tax-cut/" target="_blank" rel="noopener">Fact-checking BC United's tax-cut proposal</a></p>
+            <p class="media-row-meta"><strong>Policy Options</strong> · August 2024 · with Gillian Petit</p>
+          </div>
+          <div class="media-row-right"><a href="https://policyoptions.irpp.org/2024/08/bc-united-tax-cut/" target="_blank" rel="noopener" class="row-link">Read ↗</a></div>
+        </div>
+
+        <!-- 2023 -->
+        <div class="media-row year-group"><span class="year-group-label">2023</span></div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><a href="https://policyoptions.irpp.org/2023/05/ucp-income-tax-bracket/" target="_blank" rel="noopener">Who would benefit from the UCP personal income tax proposal in Alberta?</a></p>
+            <p class="media-row-meta"><strong>Policy Options</strong> · May 2023 · with Gillian Petit</p>
+          </div>
+          <div class="media-row-right"><a href="https://policyoptions.irpp.org/2023/05/ucp-income-tax-bracket/" target="_blank" rel="noopener" class="row-link">Read ↗</a></div>
+        </div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><span>Basic income isn't the best way to create a just and inclusive society</span></p>
+            <p class="media-row-meta"><strong>The Globe and Mail</strong> · May 2023 · with David A. Green</p>
+          </div>
+          <div class="media-row-right"></div>
+        </div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><span>A Sales Tax for Alberta: Why and How [book review]</span></p>
+            <p class="media-row-meta"><strong>Alberta Views</strong> · March 2023</p>
+          </div>
+          <div class="media-row-right"></div>
+        </div>
+
+        <!-- 2022 -->
+        <div class="media-row year-group"><span class="year-group-label">2022</span></div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><a href="https://policyoptions.irpp.org/magazines/december-2022/canada-dental-benefit-problems/" target="_blank" rel="noopener">The federal dental plan may fall short of expectations</a></p>
+            <p class="media-row-meta"><strong>Policy Options</strong> · December 2022 · with Jennifer Robson, Tammy Schirle</p>
+          </div>
+          <div class="media-row-right"><a href="https://policyoptions.irpp.org/magazines/december-2022/canada-dental-benefit-problems/" target="_blank" rel="noopener" class="row-link">Read ↗</a></div>
+        </div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><a href="https://policyoptions.irpp.org/2022/09/gst-credit-expansion/" target="_blank" rel="noopener">Looking at the expansion of the GST credit</a></p>
+            <p class="media-row-meta"><strong>Policy Options</strong> · September 2022 · with Gillian Petit, Jennifer Robson</p>
+          </div>
+          <div class="media-row-right"><a href="https://policyoptions.irpp.org/2022/09/gst-credit-expansion/" target="_blank" rel="noopener" class="row-link">Read ↗</a></div>
+        </div>
+
+        <!-- 2021 -->
+        <div class="media-row year-group"><span class="year-group-label">2021</span></div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><a href="https://policyoptions.irpp.org/magazines/septembe-2021/the-conservatives-child-care-plan-will-help-poorer-families-but-reinforce-regional-inequity/" target="_blank" rel="noopener">The Conservatives' child care plan will help poorer families but reinforce regional inequality</a></p>
+            <p class="media-row-meta"><strong>Policy Options</strong> · September 2021 · with Gillian Petit, Tammy Schirle</p>
+          </div>
+          <div class="media-row-right"><a href="https://policyoptions.irpp.org/magazines/septembe-2021/the-conservatives-child-care-plan-will-help-poorer-families-but-reinforce-regional-inequity/" target="_blank" rel="noopener" class="row-link">Read ↗</a></div>
+        </div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><span>Concrete steps toward a more just society for Budgets '22 and beyond</span></p>
+            <p class="media-row-meta"><strong>Vancouver Sun</strong> · August 2021 · with David Green, Rhys Kesselman, Daniel Perrin</p>
+          </div>
+          <div class="media-row-right"></div>
+        </div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><a href="https://www.theglobeandmail.com/opinion/article-what-can-the-cerb-teach-canada-about-establishing-a-universal-basic/" target="_blank" rel="noopener">What can the CERB teach Canada about establishing a universal basic income? Very little.</a></p>
+            <p class="media-row-meta"><strong>The Globe and Mail</strong> · April 2021 · with David A. Green, Jonathan Rhys Kesselman, Daniel Perrin</p>
+          </div>
+          <div class="media-row-right"><a href="https://www.theglobeandmail.com/opinion/article-what-can-the-cerb-teach-canada-about-establishing-a-universal-basic/" target="_blank" rel="noopener" class="row-link">Read ↗</a></div>
+        </div>
+
+        <!-- 2020 -->
+        <div class="media-row year-group"><span class="year-group-label">2020</span></div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><span>Our punishingly complex income and social supports system</span></p>
+            <p class="media-row-meta"><strong>Maclean's</strong> · December 2020 · with Gillian Petit</p>
+          </div>
+          <div class="media-row-right"></div>
+        </div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><a href="https://policyoptions.irpp.org/magazines/may-2020/a-basic-income-is-not-as-simple-as-you-might-think/" target="_blank" rel="noopener">A basic income is not as simple as you might think</a></p>
+            <p class="media-row-meta"><strong>Policy Options</strong> · May 2020 · with David A. Green, J. Rhys Kesselman</p>
+          </div>
+          <div class="media-row-right"><a href="https://policyoptions.irpp.org/magazines/may-2020/a-basic-income-is-not-as-simple-as-you-might-think/" target="_blank" rel="noopener" class="row-link">Read ↗</a></div>
+        </div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><span>Local governments face several constraints, but there are 13 short-run policy actions they can take</span></p>
+            <p class="media-row-meta"><strong>Policy Options</strong> · April 2020 · with Rob Gillezeau, Gillian Petit</p>
+          </div>
+          <div class="media-row-right"></div>
+        </div>
+
+        <!-- 2019 -->
+        <div class="media-row year-group"><span class="year-group-label">2019</span></div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><span>Let's end the period taboo. Making menstrual products available is about dignity, nothing less.</span></p>
+            <p class="media-row-meta"><strong>Toronto Star</strong> · May 2019</p>
+          </div>
+          <div class="media-row-right"></div>
+        </div>
+
+        <!-- 2018 -->
+        <div class="media-row year-group"><span class="year-group-label">2018</span></div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><span>Finally a poverty plan. But will it work?</span></p>
+            <p class="media-row-meta"><strong>Maclean's</strong> · December 2018</p>
+          </div>
+          <div class="media-row-right"></div>
+        </div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><span>The winners and losers if Alberta returns to a flat tax system</span></p>
+            <p class="media-row-meta"><strong>Maclean's</strong> · May 2018</p>
+          </div>
+          <div class="media-row-right"></div>
+        </div>
+
+        <!-- 2017 -->
+        <div class="media-row year-group"><span class="year-group-label">2017</span></div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><a href="https://www.theglobeandmail.com/opinion/bcs-ndp-tax-man-gives-with-one-hand-takes-with-the-other/article36275067/" target="_blank" rel="noopener">B.C.'s NDP tax man gives with one hand, takes with the other</a></p>
+            <p class="media-row-meta"><strong>The Globe and Mail</strong> · September 2017</p>
+          </div>
+          <div class="media-row-right"><a href="https://www.theglobeandmail.com/opinion/bcs-ndp-tax-man-gives-with-one-hand-takes-with-the-other/article36275067/" target="_blank" rel="noopener" class="row-link">Read ↗</a></div>
+        </div>
+
+        <!-- 2016 -->
+        <div class="media-row year-group"><span class="year-group-label">2016</span></div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><span>The foreign buyer tax leaves us with the wrong kind of speculator</span></p>
+            <p class="media-row-meta"><strong>The Globe and Mail</strong> · July 2016</p>
+          </div>
+          <div class="media-row-right"></div>
+        </div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><span>The unintended consequences of boosting parental leave</span></p>
+            <p class="media-row-meta"><strong>Maclean's</strong> · April 2016</p>
+          </div>
+          <div class="media-row-right"></div>
+        </div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><span>Ottawa should move to regulate assisted reproduction</span></p>
+            <p class="media-row-meta"><strong>Maclean's</strong> · March 2016</p>
+          </div>
+          <div class="media-row-right"></div>
+        </div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><span>Quantifying the impact of Canada's second-hand economy</span></p>
+            <p class="media-row-meta"><strong>The Globe and Mail</strong> · March 2016</p>
+          </div>
+          <div class="media-row-right"></div>
+        </div>
+
+        <!-- 2015 -->
+        <div class="media-row year-group"><span class="year-group-label">2015</span></div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><span>Fewer rich people ahead?</span></p>
+            <p class="media-row-meta"><strong>Maclean's</strong> · December 2015</p>
+          </div>
+          <div class="media-row-right"></div>
+        </div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><span>How Alberta's public sector salary disclosure could backfire</span></p>
+            <p class="media-row-meta"><strong>Maclean's</strong> · November 2015</p>
+          </div>
+          <div class="media-row-right"></div>
+        </div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><span>Increase taxes on the highest earners? First, consider the alternatives.</span></p>
+            <p class="media-row-meta"><strong>The Globe and Mail</strong> · October 2015</p>
+          </div>
+          <div class="media-row-right"></div>
+        </div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><span>What does it mean? The economic questions raised by Trudeau's win</span></p>
+            <p class="media-row-meta"><strong>The Globe and Mail</strong> · October 2015</p>
+          </div>
+          <div class="media-row-right"></div>
+        </div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><span>The good news—but missed opportunity—in Harper's RESP pledge</span></p>
+            <p class="media-row-meta"><strong>Maclean's</strong> · September 2015</p>
+          </div>
+          <div class="media-row-right"></div>
+        </div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><span>Why the mineral exploration tax credit is such a bad idea</span></p>
+            <p class="media-row-meta"><strong>Maclean's</strong> · September 2015</p>
+          </div>
+          <div class="media-row-right"></div>
+        </div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><span>The real problem with all that tax debt Canadians owe</span></p>
+            <p class="media-row-meta"><strong>Maclean's</strong> · July 2015</p>
+          </div>
+          <div class="media-row-right"></div>
+        </div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><span>Why shaming Alberta's securities deadbeats may not work</span></p>
+            <p class="media-row-meta"><strong>Maclean's</strong> · July 2015</p>
+          </div>
+          <div class="media-row-right"></div>
+        </div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><span>Threats on social media are not victimless crimes</span></p>
+            <p class="media-row-meta"><strong>Ottawa Citizen</strong> · January 2015</p>
+          </div>
+          <div class="media-row-right"></div>
+        </div>
+
+        <!-- 2014 -->
+        <div class="media-row year-group"><span class="year-group-label">2014</span></div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><span>When you're a university dean, 'toe the party line' isn't your job</span></p>
+            <p class="media-row-meta"><strong>The Globe and Mail</strong> · May 2014</p>
+          </div>
+          <div class="media-row-right"></div>
+        </div>
+
+        <!-- 2013 -->
+        <div class="media-row year-group"><span class="year-group-label">2013</span></div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><span>It's time to restore fairness in Canada's tax system</span></p>
+            <p class="media-row-meta"><strong>The Globe and Mail</strong> · November 2013</p>
+          </div>
+          <div class="media-row-right"></div>
+        </div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><span>Halifax needs a congestion charge</span></p>
+            <p class="media-row-meta"><strong>The Globe and Mail</strong> · March 2013</p>
+          </div>
+          <div class="media-row-right"></div>
+        </div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><span>Politicians should be counting opportunity costs of the 'daycare dilemma'</span></p>
+            <p class="media-row-meta"><strong>The Globe and Mail</strong> · February 2013</p>
+          </div>
+          <div class="media-row-right"></div>
+        </div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><span>What problem is Harper's venture capital plan trying to solve?</span></p>
+            <p class="media-row-meta"><strong>The Huffington Post</strong> · January 2013</p>
+          </div>
+          <div class="media-row-right"></div>
+        </div>
+
+        <!-- 2012 -->
+        <div class="media-row year-group"><span class="year-group-label">2012</span></div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><span>Faster, higher, richer: Should Olympic medal winners be taxed?</span></p>
+            <p class="media-row-meta"><strong>The Globe and Mail</strong> · August 2012</p>
+          </div>
+          <div class="media-row-right"></div>
+        </div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><span>Tipping point: Ottawa loses billions in undeclared income</span></p>
+            <p class="media-row-meta"><strong>The Globe and Mail</strong> · July 2012</p>
+          </div>
+          <div class="media-row-right"></div>
+        </div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><span>How taxes can ruin employee incentive programs</span></p>
+            <p class="media-row-meta"><strong>The Globe and Mail</strong> · June 2012</p>
+          </div>
+          <div class="media-row-right"></div>
+        </div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><span>How to raise the bar on debates about taxation</span></p>
+            <p class="media-row-meta"><strong>The Globe and Mail</strong> · May 2012</p>
+          </div>
+          <div class="media-row-right"></div>
+        </div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><span>Why modern-day tax revolts are doomed to fail</span></p>
+            <p class="media-row-meta"><strong>The Globe and Mail</strong> · May 2012</p>
+          </div>
+          <div class="media-row-right"></div>
+        </div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><span>Reduce your tax liability by claiming medical expenses</span></p>
+            <p class="media-row-meta"><strong>The Globe and Mail</strong> · April 2012</p>
+          </div>
+          <div class="media-row-right"></div>
+        </div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><span>How the CRA reveals its kinder, gentler side</span></p>
+            <p class="media-row-meta"><strong>The Globe and Mail</strong> · April 2012</p>
+          </div>
+          <div class="media-row-right"></div>
+        </div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><span>Why you don't want Ottawa to fill in your tax form</span></p>
+            <p class="media-row-meta"><strong>The Globe and Mail</strong> · April 2012</p>
+          </div>
+          <div class="media-row-right"></div>
+        </div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><span>A simple way to tax the rich</span></p>
+            <p class="media-row-meta"><strong>The Globe and Mail</strong> · March 2012</p>
+          </div>
+          <div class="media-row-right"></div>
+        </div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><span>Why tax withholding is more than a free loan to Ottawa</span></p>
+            <p class="media-row-meta"><strong>The Globe and Mail</strong> · February 2012</p>
+          </div>
+          <div class="media-row-right"></div>
+        </div>
+
+        <div class="media-row">
+          <div>
+            <p class="media-row-title"><span>Tax cheats a problem, but so are those who overpay</span></p>
+            <p class="media-row-meta"><strong>The Globe and Mail</strong> · February 2012</p>
+          </div>
+          <div class="media-row-right"></div>
+        </div>
+
+        <p class="paywall-note">Some articles are behind subscription paywalls. Links added where publicly accessible. Earlier op-eds are linked to the Globe and Mail author page where available.</p>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <span class="footer-name">Lindsay M. Tedds</span>
+    <ul class="footer-links">
+      <li><a href="/research">Research</a></li>
+      <li><a href="/publications">Publications</a></li>
+      <li><a href="/media">Media</a></li>
+      <li><a href="/teaching">Teaching</a></li>
+      <li><a href="/cv">CV</a></li>
+      <li><a href="/disclosure">Disclosure</a></li>
+      <li><a href="mailto:lindsay.tedds1@ucalgary.ca">Contact</a></li>
+    </ul>
+    <p class="footer-copy">&copy; 2026 Lindsay M. Tedds</p>
+  </footer>
+  <div class="palette-strip"><div class="ps1"></div><div class="ps2"></div><div class="ps3"></div><div class="ps4"></div></div>
+
+  <script>
+    function filterMedia(type,btn){
+      document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.media-section').forEach(s=>{
+        s.dataset.hidden=(type==='all'||s.dataset.type===type)?'false':'true';
+      });
+    }
+  </script>
+
+</body>
+</html>

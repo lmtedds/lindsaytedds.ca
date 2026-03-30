@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Active Research Projects | Lindsay M. Tedds</title>
+  <meta name="description" content="Active research projects by Lindsay M. Tedds, Professor of Economics at the University of Calgary, spanning property tax equity, microsimulation, social supports mapping, and GBA+.">
+  <meta name="keywords" content="Lindsay Tedds, active research, ProperTEA, property tax, microsimulation, GBA+, intersectionality, social supports, Alberta, University of Calgary">
+  <link rel="canonical" href="https://lindsaytedds.ca/research">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Active Research Projects | Lindsay M. Tedds">
+  <meta property="og:description" content="Current research programmes spanning property tax equity, microsimulation and distributional analysis, Alberta social supports mapping, and GBA+ and intersectionality.">
+  <meta property="og:url" content="https://lindsaytedds.ca/research">
+  <meta property="og:site_name" content="Lindsay M. Tedds">
+  <meta name="robots" content="index, follow">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── Design tokens ─────────────────────────────────── */
+    :root {
+      --ink:        #1c2b3a;
+      --ink-mid:    #2d4060;
+      --green:      #3d6b5e;
+      --green-light:#6a9e8f;
+      --green-pale: #e8f3f0;
+      --steel:      #4a6080;
+      --steel-light:#a8b8c8;
+      --cream:      #f5f3ee;
+      --cream-dark: #ece9e2;
+      --border:     #dcd7cc;
+      --white:      #ffffff;
+      --text:       #1c2b3a;
+      --text-mid:   #2a3a4a;
+      --text-muted: #6a7a8a;
+
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans:  'DM Sans', system-ui, sans-serif;
+    }
+
+    /* ── Reset ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Nav ────────────────────────────────────────────── */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--cream);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 60px;
+    }
+    .nav-name {
+      font-family: var(--serif);
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--ink);
+      letter-spacing: 0.01em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--steel);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--green); }
+
+    /* ── Page header ────────────────────────────────────── */
+    .page-header {
+      background: var(--ink);
+      padding: 56px 48px 52px;
+    }
+    .page-header-eyebrow {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--green-light);
+      margin-bottom: 16px;
+    }
+    .page-header h1 {
+      font-family: var(--serif);
+      font-size: 48px;
+      font-weight: 300;
+      color: #f0ece4;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .page-header-rule {
+      width: 44px;
+      height: 2px;
+      background: var(--green);
+      margin-bottom: 20px;
+    }
+    .page-header-desc {
+      font-family: var(--serif);
+      font-size: 17px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--steel-light);
+      max-width: 580px;
+      line-height: 1.7;
+    }
+
+    /* ── Main ───────────────────────────────────────────── */
+    .site-main {
+      padding: 56px 48px 80px;
+      max-width: 1100px;
+    }
+
+    /* ── Project card ───────────────────────────────────── */
+    .project-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--green);
+      border-radius: 2px;
+      margin-bottom: 28px;
+      overflow: hidden;
+    }
+    .project-card-inner {
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 0;
+    }
+    .project-body {
+      padding: 32px 32px 28px;
+      border-right: 1px solid var(--border);
+    }
+    .project-meta-top {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+    .project-area-tag {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--green);
+      background: var(--green-pale);
+      padding: 3px 9px;
+      border-radius: 2px;
+    }
+    .project-status {
+      font-family: var(--sans);
+      font-size: 10px;
+      padding: 3px 9px;
+      border-radius: 2px;
+    }
+    .status-active {
+      background: var(--green-pale);
+      color: var(--green);
+    }
+    .project-title {
+      font-family: var(--serif);
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+    .project-desc {
+      font-family: var(--serif);
+      font-size: 15.5px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--text-mid);
+      margin-bottom: 24px;
+    }
+
+    /* ── Outputs within project ─────────────────────────── */
+    .project-outputs-label {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    .output-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .output-item {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      padding: 10px 14px;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+    }
+    .output-type {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--steel);
+      white-space: nowrap;
+      min-width: 72px;
+    }
+    .output-title {
+      font-family: var(--serif);
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.45;
+      flex: 1;
+    }
+    .output-link {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: var(--steel);
+      white-space: nowrap;
+      transition: color 0.2s;
+    }
+    .output-link:hover { color: var(--green); }
+
+    /* ── Project sidebar ────────────────────────────────── */
+    .project-sidebar {
+      padding: 32px 24px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .sidebar-block-label {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .sidebar-funder {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--text-mid);
+      line-height: 1.55;
+      margin-bottom: 4px;
+    }
+    .sidebar-amount {
+      font-family: var(--serif);
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--ink);
+    }
+    .sidebar-year {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    .sidebar-links {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .sidebar-link {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--steel);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+      display: inline-block;
+      width: fit-content;
+    }
+    .sidebar-link:hover { color: var(--green); border-color: var(--green-light); }
+    .sidebar-collab {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+    .sidebar-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── Footer ─────────────────────────────────────────── */
+    .site-footer {
+      background: var(--ink);
+      padding: 40px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .footer-name {
+      font-family: var(--serif);
+      font-size: 16px;
+      font-weight: 400;
+      color: #c8d4de;
+    }
+    .footer-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .footer-links a {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: #6a8090;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--green-light); }
+    .footer-copy {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: #4a6070;
+    }
+    .palette-strip {
+      height: 3px;
+      display: flex;
+    }
+    .ps1 { flex: 4; background: var(--ink); }
+    .ps2 { flex: 2; background: var(--green); }
+    .ps3 { flex: 2; background: var(--steel); }
+    .ps4 { flex: 1; background: var(--green-light); }
+
+    /* ── Responsive ─────────────────────────────────────── */
+    @media (max-width: 860px) {
+      .project-card-inner { grid-template-columns: 1fr; }
+      .project-body { border-right: none; border-bottom: 1px solid var(--border); }
+      .site-nav, .page-header, .site-main, .site-footer { padding-left: 24px; padding-right: 24px; }
+      .nav-links { display: none; }
+      .page-header h1 { font-size: 36px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="/" class="nav-name">Lindsay M. Tedds</a>
+    <ul class="nav-links">
+      <li><a href="/research" class="active">Research</a></li>
+      <li><a href="/publications">Publications</a></li>
+      <li><a href="/media">Media</a></li>
+      <li><a href="/teaching">Teaching</a></li>
+      <li><a href="/cv">CV</a></li>
+      <li><a href="/disclosure">Disclosure</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page header -->
+  <header class="page-header">
+    <p class="page-header-eyebrow">Lindsay M. Tedds</p>
+    <h1>Active Research<br>Projects</h1>
+    <div class="page-header-rule" aria-hidden="true"></div>
+    <p class="page-header-desc">Current research programmes spanning property tax equity, microsimulation and distributional analysis, social supports mapping, and intersectional policy analysis.</p>
+  </header>
+
+  <!-- Main -->
+  <main class="site-main">
+
+    <!-- Project 1: ProperTEA -->
+    <article class="project-card" id="propertea">
+      <div class="project-card-inner">
+        <div class="project-body">
+          <div class="project-meta-top">
+            <span class="project-area-tag">Property Tax &amp; Housing</span>
+            <span class="project-status status-active">Active</span>
+          </div>
+          <h2 class="project-title">ProperTEA: Property Tax Equity Assessment</h2>
+          <p class="project-desc">Property taxes are among the most consequential fiscal instruments affecting housing affordability in Canada, yet their distributional effects are poorly understood. ProperTEA examines horizontal and vertical (in)equities in Calgary's property tax assessment system — whether comparable properties are assessed consistently, and whether the tax burden falls proportionally across income groups and neighbourhoods. The project extends this analysis to assess property tax regressivity across Alberta more broadly, with direct policy implications for housing affordability reform.</p>
+
+          <p class="project-outputs-label">Selected outputs</p>
+          <div class="output-list">
+            <div class="output-item">
+              <span class="output-type">Working Paper</span>
+              <span class="output-title">Property Tax Regressivity in Alberta</span>
+              <span>—</span>
+              <span class="output-title" style="color:var(--text-muted);font-size:13px;">Petit &amp; Tedds · 2026</span>
+            </div>
+            <div class="output-item">
+              <span class="output-type">Working Paper</span>
+              <span class="output-title">Vertical (In)Equities in Calgary's Property Assessments: Decomposing Inequities Between Vulnerable and Non-Vulnerable Communities</span>
+              <span>—</span>
+              <span class="output-title" style="color:var(--text-muted);font-size:13px;">Petit &amp; Tedds · 2025</span>
+            </div>
+            <div class="output-item">
+              <span class="output-type">Tech. Report</span>
+              <span class="output-title">Horizontal and Vertical (In)Equities in Calgary's Property Tax Assessments: Mapping Patterns of Inequity</span>
+              <span>—</span>
+              <span class="output-title" style="color:var(--text-muted);font-size:13px;">Petit &amp; Tedds · 2024</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="project-sidebar">
+          <div>
+            <p class="sidebar-block-label">Primary Funding</p>
+            <p class="sidebar-funder">SSHRC Insight Development Grant</p>
+            <p class="sidebar-amount">$74,882</p>
+            <p class="sidebar-year">Awarded 2024</p>
+          </div>
+          <hr class="sidebar-divider">
+          <div>
+            <p class="sidebar-block-label">Additional Funding</p>
+            <p class="sidebar-funder">Alberta Real Estate Foundation</p>
+            <p class="sidebar-amount">$91,500</p>
+            <p class="sidebar-year">Awarded 2025</p>
+            <br>
+            <p class="sidebar-funder">City of Calgary — Equity in Service Delivery Fund</p>
+            <p class="sidebar-amount">$70,000</p>
+            <p class="sidebar-year">Awarded 2023</p>
+          </div>
+          <hr class="sidebar-divider">
+          <div>
+            <p class="sidebar-block-label">Collaborators</p>
+            <p class="sidebar-collab">Gillian Petit<br>University of Calgary</p>
+          </div>
+        </aside>
+      </div>
+    </article>
+
+    <!-- Project 2: Microsimulation -->
+    <article class="project-card" id="microsimulation">
+      <div class="project-card-inner">
+        <div class="project-body">
+          <div class="project-meta-top">
+            <span class="project-area-tag">Microsimulation &amp; Distributional Analysis</span>
+            <span class="project-status status-active">Active</span>
+          </div>
+          <h2 class="project-title">Microsimulation &amp; Distributional Analysis</h2>
+          <p class="project-desc">Aggregate policy outcomes hide more than they reveal. This research programme applies tax and transfer policy rules to representative individual-level data — using Statistics Canada's SPSD/M, the T1 Family File, the Longitudinal Administrative Databank, and the Canadian Tax and Credit Simulator — to reveal who gains, who loses, and by how much when policy changes. The approach generates granular distributional pictures of policy impact across income groups, family types, and regions before reforms are implemented, directly informing evidence-based policy design.</p>
+
+          <p class="project-desc">This work covers much of the same analytical ground as the Parliamentary Budget Office — costing tax and transfer reforms, modelling benefit interactions, and evaluating fiscal impacts of policy proposals — but with distributional analysis built in by default, not treated as optional. Where the PBO typically leads with aggregate fiscal cost, this research leads with who bears that cost and who receives those benefits, disaggregated by income, family type, region, and other axes of difference. The result is policy analysis that is both fiscally rigorous and equity-centred.</p>
+
+          <p class="project-outputs-label">Selected outputs</p>
+          <div class="output-list">
+            <div class="output-item">
+              <span class="output-type">Journal</span>
+              <span class="output-title">Who Benefits?: A Critical Analysis of Canada's Federal Basic Personal Amount and Personal Tax Credits</span>
+              <a href="https://doi.org/10.32721/ctj.2024.72.4.pf.petit" target="_blank" rel="noopener" class="output-link">Read ↗</a>
+            </div>
+            <div class="output-item">
+              <span class="output-type">Journal</span>
+              <span class="output-title">A Basic Income for Nunavut: Addressing Poverty in Canada's North</span>
+              <a href="https://doi.org/10.3138/cpp.2023-045" target="_blank" rel="noopener" class="output-link">Read ↗</a>
+            </div>
+            <div class="output-item">
+              <span class="output-type">Working Paper</span>
+              <span class="output-title">Systematic Barriers to Justice: Financial Eligibility for Legal Aid — A Gendered Analysis</span>
+              <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4419064" target="_blank" rel="noopener" class="output-link">Read ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <aside class="project-sidebar">
+          <div>
+            <p class="sidebar-block-label">Tools</p>
+            <p class="sidebar-collab">Statistics Canada SPSD/M<br>T1 Family File (T1FF)<br>Longitudinal Administrative Databank<br>Canadian Tax and Credit Simulator (CTaCS)</p>
+          </div>
+          <hr class="sidebar-divider">
+          <div>
+            <p class="sidebar-block-label">Active Since</p>
+            <p class="sidebar-collab">2019</p>
+          </div>
+          <hr class="sidebar-divider">
+          <div>
+            <p class="sidebar-block-label">More</p>
+            <div class="sidebar-links">
+              <a href="https://inclusiecon.ca/research-microsimulation.html" target="_blank" rel="noopener" class="sidebar-link">INCLUSIECON page ↗</a>
+            </div>
+          </div>
+          <hr class="sidebar-divider">
+          <div>
+            <p class="sidebar-block-label">Collaborators</p>
+            <p class="sidebar-collab">Gillian Petit<br>University of Calgary</p>
+          </div>
+        </aside>
+      </div>
+    </article>
+
+    <!-- Project 3: Alberta Social Supports Mapping -->
+    <article class="project-card" id="social-supports">
+      <div class="project-card-inner">
+        <div class="project-body">
+          <div class="project-meta-top">
+            <span class="project-area-tag">Social Policy</span>
+            <span class="project-status status-active">Active</span>
+          </div>
+          <h2 class="project-title">Mapping the System of Income &amp; Social Supports in Alberta, BC, and Nunavut</h2>
+          <p class="project-desc">Canada's income and social support system is one of the most complex fiscal architectures in the country — layered across federal, provincial, and territorial jurisdictions, with hundreds of interacting programs governed by different eligibility rules, delivery mechanisms, and administrative regimes. Yet this system is poorly understood, even by the people who administer it.</p>
+          <p class="project-desc">This cross-jurisdictional research programme is building the most comprehensive publicly available maps of income and social support systems across three Canadian jurisdictions — documenting program complexity, adequacy gaps, cliff effects, and realistic reform pathways in partnership with governments and community organizations. The Alberta phase, supported by a SSHRC Partnership Engage Grant in partnership with Vibrant Communities Calgary, extends and deepens prior mapping work completed for BC (190+ programs) and Nunavut (105 programs), building the evidence base needed to identify gaps, overlaps, and reform priorities in Alberta's social safety net — and making that evidence usable by policymakers, advocates, and researchers.</p>
+
+          <p class="project-outputs-label">Related outputs</p>
+          <div class="output-list">
+            <div class="output-item">
+              <span class="output-type">Journal</span>
+              <span class="output-title">Income and Social Supports: An Inclusive Systems-based Approach to Cash Transfer Program Design</span>
+              <a href="https://doi.org/10.1111/capa.70050" target="_blank" rel="noopener" class="output-link">Read ↗</a>
+            </div>
+            <div class="output-item">
+              <span class="output-type">Journal</span>
+              <span class="output-title">Tax Filing as State Administrative Infrastructure: Governance Gaps in Canada's Tax-based Benefit System</span>
+              <span class="output-link" style="color:var(--text-muted);">Forthcoming</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="project-sidebar">
+          <div>
+            <p class="sidebar-block-label">Funding</p>
+            <p class="sidebar-funder">SSHRC Partnership Engage Grant</p>
+            <p class="sidebar-amount">$24,995</p>
+            <p class="sidebar-year">Awarded December 2025</p>
+          </div>
+          <hr class="sidebar-divider">
+          <div>
+            <p class="sidebar-block-label">Partner</p>
+            <p class="sidebar-collab">Vibrant Communities Calgary</p>
+          </div>
+          <hr class="sidebar-divider">
+          <div>
+            <p class="sidebar-block-label">Collaborators</p>
+            <p class="sidebar-collab">Gillian Petit<br>University of Calgary<br><br>Samuel Shipley<br>University of Calgary</p>
+          </div>
+        </aside>
+      </div>
+    </article>
+
+    <!-- Project 4: GBA+ / Intersectionality -->
+    <article class="project-card" id="gbaplus">
+      <div class="project-card-inner">
+        <div class="project-body">
+          <div class="project-meta-top">
+            <span class="project-area-tag">GBA+ &amp; Intersectionality</span>
+            <span class="project-status status-active">Active</span>
+          </div>
+          <h2 class="project-title">GBA+ and Intersectional Policy Analysis</h2>
+          <p class="project-desc">Gender-based Analysis Plus (GBA+) is Canada's primary framework for assessing how policies affect diverse groups — yet its implementation has been uneven, contested, and subject to political reversal. This research examines the design, application, and limitations of GBA+ as a tool for embedding intersectionality into Canadian public policy, tracing the framework's evolution and the structural conditions that enable or undermine it. Current work focuses on documenting the erosion of GBA+ capacity in the federal government and developing a more robust intersectional framework for policy analysis and design.</p>
+
+          <p class="project-outputs-label">Selected outputs</p>
+          <div class="output-list">
+            <div class="output-item">
+              <span class="output-type">Working Paper</span>
+              <span class="output-title">Dismantling the Women's State: The Rise, Fall and Rise and Fall of GBA+</span>
+              <span class="output-link" style="color:var(--text-muted);">In progress</span>
+            </div>
+            <div class="output-item">
+              <span class="output-type">Journal</span>
+              <span class="output-title">Canada's GBA+ Framework in a (post)Pandemic World: Issues, Tensions, and Paths Forward</span>
+              <a href="https://doi.org/10.1111/capa.12508" target="_blank" rel="noopener" class="output-link">Read ↗</a>
+            </div>
+            <div class="output-item">
+              <span class="output-type">Journal</span>
+              <span class="output-title">Igniting an Intersectional Shift in Public Policy Research (and Training)</span>
+              <a href="https://utppublishing.com/doi/full/10.3138/cpp.2022-064" target="_blank" rel="noopener" class="output-link">Read ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <aside class="project-sidebar">
+          <div>
+            <p class="sidebar-block-label">Status</p>
+            <p class="sidebar-collab">Ongoing research programme. Key paper currently in progress.</p>
+          </div>
+          <hr class="sidebar-divider">
+          <div>
+            <p class="sidebar-block-label">Affiliations</p>
+            <div class="sidebar-links">
+              <a href="https://www.concordia.ca" target="_blank" rel="noopener" class="sidebar-link">Feminist Policy Lab, Concordia University ↗</a>
+            </div>
+          </div>
+          <hr class="sidebar-divider">
+          <div>
+            <p class="sidebar-block-label">Collaborators</p>
+            <p class="sidebar-collab">Selvia Arshad<br>University of Calgary</p>
+          </div>
+        </aside>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <span class="footer-name">Lindsay M. Tedds</span>
+    <ul class="footer-links">
+      <li><a href="/research">Research</a></li>
+      <li><a href="/publications">Publications</a></li>
+      <li><a href="/media">Media</a></li>
+      <li><a href="/cv">CV</a></li>
+      <li><a href="/disclosure">Disclosure</a></li>
+      <li><a href="mailto:lindsay.tedds1@ucalgary.ca">Contact</a></li>
+    </ul>
+    <p class="footer-copy">&copy; 2026 Lindsay M. Tedds</p>
+  </footer>
+
+  <div class="palette-strip" aria-hidden="true">
+    <div class="ps1"></div>
+    <div class="ps2"></div>
+    <div class="ps3"></div>
+    <div class="ps4"></div>
+  </div>
+
+</body>
+</html>
