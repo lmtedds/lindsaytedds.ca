@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lindsay M. Tedds — Visual CV</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c2b3a; --ink-mid:#2d4060; --green:#3d6b5e; --green-light:#6a9e8f;
+    --green-pale:#e8f3f0; --steel:#4a6080; --steel-light:#a8b8c8;
+    --cream:#f5f3ee; --border:#dcd7cc; --white:#fff;
+    --text:#1c2b3a; --text-muted:#6a7a8a;
+    --serif:'Cormorant Garamond',Georgia,serif;
+    --sans:'DM Sans',system-ui,sans-serif;
+    --mono:'IBM Plex Mono',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#e4e0d8;font-family:var(--sans);color:var(--text);padding:32px 16px;
+       -webkit-font-smoothing:antialiased;}
+  .sheet{width:1000px;max-width:100%;margin:0 auto;background:var(--cream);
+         box-shadow:0 2px 40px rgba(28,43,58,.16);}
+
+  /* ---------- HEADER ---------- */
+  .head{background:var(--ink);color:#fff;padding:38px 44px 34px;display:flex;gap:32px;align-items:center;}
+  .portrait{width:132px;height:132px;flex:0 0 132px;border-radius:50%;overflow:hidden;
+            border:3px solid var(--green-light);background:var(--ink-mid);
+            display:flex;align-items:center;justify-content:center;}
+  .portrait img{width:100%;height:100%;object-fit:cover;display:block}
+  .portrait span{font-family:var(--serif);font-size:44px;color:var(--steel-light);letter-spacing:2px}
+  .head-txt{flex:1}
+  .name{font-family:var(--serif);font-size:52px;line-height:1;font-weight:600;letter-spacing:.5px}
+  .role{font-family:var(--sans);font-size:13.5px;font-weight:500;color:var(--green-light);
+        margin-top:10px;letter-spacing:.4px}
+  .thesis{font-family:var(--serif);font-style:italic;font-size:20px;line-height:1.42;
+          color:#dfe6ea;margin-top:14px;max-width:640px}
+  .contact{display:flex;gap:22px;margin-top:16px;font-size:11.5px;color:var(--steel-light);
+           letter-spacing:.3px;flex-wrap:wrap}
+  .contact b{color:#fff;font-weight:500}
+
+  /* ---------- LAYOUT ---------- */
+  .cols{display:grid;grid-template-columns:1.32fr 1fr;}
+  .col-l{padding:32px 30px 26px 44px;}
+  .col-r{padding:32px 44px 26px 30px;border-left:1px solid var(--border);}
+  .band{padding:28px 44px 34px;border-top:1px solid var(--border);background:var(--white)}
+
+  h2{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:1.6px;
+     text-transform:uppercase;color:var(--green);padding-bottom:7px;
+     border-bottom:2px solid var(--green);margin-bottom:14px;}
+  .sec + .sec{margin-top:26px}
+
+  /* ---------- POSITIONING PROSE ---------- */
+  .bio{font-family:var(--serif);font-size:17.5px;line-height:1.55;color:var(--ink-mid)}
+  .bio + .bio{margin-top:10px}
+
+  /* ---------- AREAS ---------- */
+  .areas{display:flex;flex-wrap:wrap;gap:6px}
+  .tag{font-size:11.5px;font-weight:500;color:var(--ink-mid);background:var(--green-pale);
+       border:1px solid #cfe2dc;border-radius:2px;padding:5px 10px;letter-spacing:.2px}
+
+  /* ---------- LEDGER (signature) ---------- */
+  .ledger{font-family:var(--mono);font-size:12px;}
+  .lrow{display:flex;align-items:baseline;padding:6px 0;border-bottom:1px dotted var(--border)}
+  .lrow:last-child{border-bottom:none}
+  .lrow .lab{font-family:var(--sans);font-size:12.5px;color:var(--ink-mid);flex:1}
+  .lrow .dots{flex:1;border-bottom:1px dotted var(--steel-light);margin:0 8px;
+              transform:translateY(-3px);min-width:14px}
+  .lrow .val{font-family:var(--mono);font-size:14px;font-weight:500;color:var(--ink);
+             font-variant-numeric:tabular-nums;white-space:nowrap}
+  .ltotal{display:flex;justify-content:space-between;align-items:baseline;margin-top:10px;
+          padding-top:10px;border-top:2px solid var(--ink);}
+  .ltotal .lab{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:1.2px;
+               text-transform:uppercase;color:var(--ink)}
+  .ltotal .val{font-family:var(--mono);font-size:23px;font-weight:500;color:var(--green);
+               font-variant-numeric:tabular-nums}
+  .lnote{font-size:10.5px;color:var(--text-muted);margin-top:6px;font-style:italic}
+
+  /* ---------- POLICY INFLUENCE ---------- */
+  .infl{border-left:2px solid var(--green-light);padding-left:14px;margin-bottom:13px}
+  .infl:last-child{margin-bottom:0}
+  .infl .r{font-size:12.5px;font-weight:700;color:var(--ink);letter-spacing:.1px}
+  .infl .d{font-size:11.5px;color:var(--text-muted);line-height:1.45;margin-top:2px}
+
+  /* ---------- BAND GRID ---------- */
+  .bandgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+  .item{margin-bottom:11px}
+  .item:last-child{margin-bottom:0}
+  .item .t{font-size:12.5px;font-weight:700;color:var(--ink)}
+  .item .s{font-size:11.5px;color:var(--text-muted);line-height:1.42;margin-top:1px}
+  .big{font-family:var(--serif);font-size:34px;font-weight:600;color:var(--green);line-height:1}
+  .big small{font-family:var(--sans);font-size:11.5px;font-weight:500;color:var(--text-muted);
+             display:block;margin-top:3px;letter-spacing:.2px}
+
+  /* ---------- FOOTER ---------- */
+  .foot{background:var(--green);color:#fff;padding:14px 44px;display:flex;
+        justify-content:space-between;font-size:11.5px;letter-spacing:.4px;flex-wrap:wrap;gap:10px}
+  .foot span{opacity:.92}
+
+  @media(max-width:860px){
+    .cols{grid-template-columns:1fr}
+    .col-r{border-left:none;border-top:1px solid var(--border)}
+    .bandgrid{grid-template-columns:1fr}
+    .head{flex-direction:column;text-align:center}
+    .name{font-size:40px}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- HEADER -->
+  <div class="head">
+    <div class="portrait"><span>LT</span></div>
+    <div class="head-txt">
+      <div class="name">Lindsay M. Tedds</div>
+      <div class="role">PROFESSOR OF ECONOMICS · UNIVERSITY OF CALGARY &nbsp;|&nbsp; CO-FOUNDER, INCLUSIECON</div>
+      <div class="thesis">Public finance economist working on how the design of taxes,
+        benefits, and administration decides who is included — and who is left out.</div>
+      <div class="contact">
+        <span><b>lindsay.tedds1@ucalgary.ca</b></span>
+        <span>lindsaytedds.ca</span>
+        <span>inclusiecon.ca</span>
+        <span>Ph.D. Economics, McMaster</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- TWO COLUMNS -->
+  <div class="cols">
+    <div class="col-l">
+
+      <div class="sec">
+        <h2>What I Work On</h2>
+        <p class="bio">My research sits where public finance, tax policy, and social policy meet:
+          how fiscal and administrative design shapes equity, access, and well-being in Canada.</p>
+        <p class="bio">I work across peer-reviewed scholarship, technical reports for decision
+          makers, and partnerships with governments and community organizations — because the
+          question of whether a benefit reaches the person it was built for is answered in
+          administration, not in theory.</p>
+      </div>
+
+      <div class="sec">
+        <h2>Research Areas</h2>
+        <div class="areas">
+          <span class="tag">Basic income design</span>
+          <span class="tag">Tax &amp; benefit administration</span>
+          <span class="tag">Marginal Value of Public Funds</span>
+          <span class="tag">Property tax equity</span>
+          <span class="tag">Cash transfer design</span>
+          <span class="tag">Intersectional policy analysis &amp; GBA+</span>
+          <span class="tag">User fees &amp; municipal finance</span>
+          <span class="tag">Disability &amp; income supports</span>
+          <span class="tag">Short-term rental economies</span>
+          <span class="tag">Tax compliance &amp; the underground economy</span>
+        </div>
+      </div>
+
+      <div class="sec">
+        <h2>Policy Influence</h2>
+
+        <div class="infl">
+          <div class="r">Chair, B.C. MSP Task Force</div>
+          <div class="d">Government of British Columbia, 2018–2019 — recommendations on eliminating
+            Medical Services Plan premiums.</div>
+        </div>
+        <div class="infl">
+          <div class="r">Member, B.C. Basic Income Expert Panel</div>
+          <div class="d">Government of British Columbia, 2018–2021 — $1.1M research program;
+            the resulting framework is now standard reference in Canadian basic income debate.</div>
+        </div>
+        <div class="infl">
+          <div class="r">Academic Director, Nunavut Basic Income Project</div>
+          <div class="d">Government of Nunavut, 2021–2022 — $892K feasibility study on
+            addressing poverty in Canada's North.</div>
+        </div>
+        <div class="infl">
+          <div class="r">Expert witness &amp; expert testimony</div>
+          <div class="d">Supreme Court of British Columbia (2021–2023). Five appearances before
+            House of Commons and Senate standing committees (2014–2022). Panelist before
+            Members of Cabinet, 2023.</div>
+        </div>
+        <div class="infl">
+          <div class="r">Task forces &amp; commissions</div>
+          <div class="d">Royal Society of Canada COVID-19 Task Force · Government of Canada Task
+            Force on Women and the Economy · Ecofiscal Commission · City of Calgary Financial
+            Task Force.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT: LEDGER -->
+    <div class="col-r">
+
+      <div class="sec">
+        <h2>Research Funding</h2>
+        <div class="ledger">
+          <div class="lrow"><span class="lab">Basic Income for B.C. <em>(PI)</em></span><span class="dots"></span><span class="val">$1,100,000</span></div>
+          <div class="lrow"><span class="lab">Basic Income for Nunavut <em>(Co-I)</em></span><span class="dots"></span><span class="val">$892,073</span></div>
+          <div class="lrow"><span class="lab">Calgary Short-Term Rentals <em>(PI)</em></span><span class="dots"></span><span class="val">$324,070</span></div>
+          <div class="lrow"><span class="lab">FACT — SSHRC Partnership Dev. <em>(PI)</em></span><span class="dots"></span><span class="val">$199,923</span></div>
+          <div class="lrow"><span class="lab">Property Tax Regressivity <em>(PI)</em></span><span class="dots"></span><span class="val">$91,500</span></div>
+          <div class="lrow"><span class="lab">Twenty-four further grants</span><span class="dots"></span><span class="val">$752,218</span></div>
+          <div class="ltotal"><span class="lab">Total awarded</span><span class="val">$3.36M</span></div>
+        </div>
+        <div class="lnote">29 grants and research contracts. Principal Investigator on 26.</div>
+      </div>
+
+      <div class="sec">
+        <h2>Published Record</h2>
+        <div class="ledger">
+          <div class="lrow"><span class="lab">Peer-reviewed journal articles</span><span class="dots"></span><span class="val">22</span></div>
+          <div class="lrow"><span class="lab">Books</span><span class="dots"></span><span class="val">5</span></div>
+          <div class="lrow"><span class="lab">Edited volumes</span><span class="dots"></span><span class="val">1</span></div>
+          <div class="lrow"><span class="lab">Book chapters</span><span class="dots"></span><span class="val">9</span></div>
+          <div class="lrow"><span class="lab">Policy papers</span><span class="dots"></span><span class="val">21</span></div>
+          <div class="lrow"><span class="lab">Technical reports</span><span class="dots"></span><span class="val">39</span></div>
+          <div class="lrow"><span class="lab">General interest &amp; op-eds</span><span class="dots"></span><span class="val">43</span></div>
+        </div>
+        <div class="lnote">Including <em>Public Finance in Canada</em> (McGraw-Hill), the standard
+          Canadian public finance textbook — 6th ed. 2023, 7th ed. forthcoming 2027.</div>
+      </div>
+
+      <div class="sec">
+        <h2>Awards</h2>
+        <div class="item"><div class="t">Queen's Platinum Jubilee Medal</div>
+          <div class="s">Government of Alberta, 2022</div></div>
+        <div class="item"><div class="t">Purvis Prize — Honourable Mention</div>
+          <div class="s">Canadian Economics Association, 2023</div></div>
+        <div class="item"><div class="t">Faculty of Arts Award for Public Engagement</div>
+          <div class="s">University of Calgary, 2021</div></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BOTTOM BAND -->
+  <div class="band">
+    <div class="bandgrid">
+
+      <div>
+        <h2>Current Leadership</h2>
+        <div class="item"><div class="t">Principal Investigator &amp; Co-Director, FACT</div>
+          <div class="s">Fair and Accountable Canadian Taxation, 2026–2029. With Jennifer Robson
+            (Carleton) and Antoine Genest-Grégoire (Sherbrooke).</div></div>
+        <div class="item"><div class="t">Academic Lead, MVPF Partnership</div>
+          <div class="s">Marginal Value of Public Funds, 2026–2028. Partner: Maytree.</div></div>
+        <div class="item"><div class="t">Co-Director, ENABLE</div>
+          <div class="s">Equity in Needs-Based Assistance for Better Lives, 2026–2028.</div></div>
+        <div class="item"><div class="t">Co-Founder, INCLUSIECON</div>
+          <div class="s">Public-facing hub for inclusive economics research.</div></div>
+        <div class="item"><div class="t">Editorial Board, <em>Canadian Tax Journal</em></div>
+          <div class="s">2020–present.</div></div>
+      </div>
+
+      <div>
+        <h2>Public Commentary</h2>
+        <div class="big">50+<small>media appearances in a standard year — 100+ in an election year</small></div>
+        <div class="item" style="margin-top:14px">
+          <div class="t">Television, radio, print, podcasts</div>
+          <div class="s">Non-partisan economic commentary on current events. Regular solicited
+            advice to members of Canadian governments.</div>
+        </div>
+        <div class="item">
+          <div class="t">Writing</div>
+          <div class="s">43 op-eds and general interest pieces. Blog:
+            <em>Dead for Tax Reasons</em>.</div>
+        </div>
+      </div>
+
+      <div>
+        <h2>Teaching &amp; Mentorship</h2>
+        <div class="big">20 yrs<small>teaching public finance and economics across four universities</small></div>
+        <div class="item" style="margin-top:14px">
+          <div class="t">Undergraduate</div>
+          <div class="s">Principles of Micro- and Macroeconomics; Canadian Public Finance.
+            Classes to 390 students.</div>
+        </div>
+        <div class="item">
+          <div class="t">Graduate</div>
+          <div class="s">Public Revenue Analysis; Microsimulation Modeling for Policy Analysis;
+            Markets and Public Policy.</div>
+        </div>
+        <div class="item">
+          <div class="t">Supervision</div>
+          <div class="s">Doctoral and master's supervision and committee membership; a research
+            team of post-docs, associates, and coordinators.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="foot">
+    <span>lindsay.tedds1@ucalgary.ca</span>
+    <span>lindsaytedds.ca</span>
+    <span>inclusiecon.ca</span>
+    <span>Department of Economics, University of Calgary</span>
+  </div>
+
+</div>
+</body>
+</html>
